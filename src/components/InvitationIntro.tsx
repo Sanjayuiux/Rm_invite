@@ -27,7 +27,7 @@ export const InvitationIntro: React.FC = () => {
               <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
                 {weddingData.families.familyOne.father}
               </p>
-              <span className="font-script text-lg sm:text-xl text-[#7B2431] block -my-0.5">
+              <span className="font-serif text-base sm:text-lg text-[#7B2431] block my-0.5 opacity-80">
                 &amp;
               </span>
               <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
@@ -35,7 +35,7 @@ export const InvitationIntro: React.FC = () => {
               </p>
             </div>
 
-            <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#854D56] font-medium my-1">
+            <p className="font-body text-[11px] uppercase tracking-[0.28em] text-[#854D56] font-light my-1">
               and
             </p>
 
@@ -44,7 +44,7 @@ export const InvitationIntro: React.FC = () => {
               <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
                 {weddingData.families.familyTwo.father}
               </p>
-              <span className="font-script text-lg sm:text-xl text-[#7B2431] block -my-0.5">
+              <span className="font-serif text-base sm:text-lg text-[#7B2431] block my-0.5 opacity-80">
                 &amp;
               </span>
               <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
@@ -75,9 +75,9 @@ export const InvitationIntro: React.FC = () => {
               </h3>
             </div>
 
-            <div className="my-2 flex items-center justify-center gap-3">
+            <div className="my-3 flex items-center justify-center gap-3">
               <span className="w-8 h-[1px] bg-[#7B2431]/40" />
-              <span className="font-script text-2xl sm:text-3xl text-[#7B2431] font-normal">
+              <span className="font-serif text-lg sm:text-xl text-[#7B2431] font-normal tracking-widest uppercase">
                 weds
               </span>
               <span className="w-8 h-[1px] bg-[#7B2431]/40" />

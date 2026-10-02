@@ -136,8 +136,8 @@ export const InvitationGate: React.FC<InvitationGateProps> = ({ onOpenComplete }
                 <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] tracking-wide font-normal leading-tight">
                   {weddingData.couple.displayNames.groom}
                 </h3>
-                <span className="font-script text-xl sm:text-2xl text-[#854D56] my-0.5 block">
-                  and
+                <span className="font-serif text-lg sm:text-xl text-[#854D56] my-0.5 block opacity-75">
+                  &amp;
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] tracking-wide font-normal leading-tight">
                   {weddingData.couple.displayNames.bride}
@@ -280,14 +280,14 @@ export const InvitationGate: React.FC<InvitationGateProps> = ({ onOpenComplete }
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h1 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] tracking-wide font-normal">
+            <h1 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] tracking-wider font-normal">
               {weddingData.couple.displayNames.groom}
-              <span className="font-script text-2xl sm:text-3xl text-[#7B2431] mx-2">
-                {weddingData.couple.displayNames.conjunction}
+              <span className="font-serif text-2xl sm:text-3xl text-[#7B2431] mx-2 opacity-85">
+                &amp;
               </span>
               {weddingData.couple.displayNames.bride}
             </h1>
-            <p className="font-body text-[11px] sm:text-[12px] tracking-[0.25em] text-[#854D56] uppercase font-medium mt-1">
+            <p className="font-body text-[11px] sm:text-[12px] tracking-[0.28em] text-[#854D56] uppercase font-light mt-1">
               22 November 2026
             </p>
           </div>
@@ -295,7 +295,7 @@ export const InvitationGate: React.FC<InvitationGateProps> = ({ onOpenComplete }
           {/* OPEN INVITATION CTA BUTTON */}
           <button
             onClick={handleOpen}
-            className="group relative inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 bg-[#5C131D] text-[#FFFFFF] border border-[#7B2431] rounded-none tracking-[0.2em] uppercase font-body text-xs sm:text-[13px] font-medium shadow-md transition-all duration-300 hover:bg-[#4A0E17] active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#7B2431]"
+            className="group relative inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 bg-[#5C131D] text-[#FFFFFF] border border-[#7B2431] rounded-none tracking-[0.25em] uppercase font-body text-xs sm:text-[13px] font-light shadow-md transition-all duration-300 hover:bg-[#4A0E17] active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#7B2431]"
           >
             <span className="relative z-10 flex items-center gap-2.5">
               <span>Open Invitation</span>

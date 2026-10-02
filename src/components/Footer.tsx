@@ -24,8 +24,8 @@ export const Footer: React.FC = () => {
             a part of our celebration.
           </h3>
 
-          <p className="font-script text-2xl sm:text-3xl text-[#7B2431] my-2">
-            With love,
+          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-[#7B2431] font-light my-2">
+            With love &amp; blessings
           </p>
 
           <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] tracking-wide font-normal mb-2">

@@ -32,7 +32,7 @@ export const FamilySection: React.FC = () => {
                 {weddingData.families.familyOne.father}
               </p>
 
-              <span className="font-script text-xl text-[#7B2431] my-1">
+              <span className="font-serif text-lg text-[#7B2431] my-1 opacity-75">
                 &amp;
               </span>
 
@@ -55,7 +55,7 @@ export const FamilySection: React.FC = () => {
                 {weddingData.families.familyTwo.father}
               </p>
 
-              <span className="font-script text-xl text-[#7B2431] my-1">
+              <span className="font-serif text-lg text-[#7B2431] my-1 opacity-75">
                 &amp;
               </span>
 
