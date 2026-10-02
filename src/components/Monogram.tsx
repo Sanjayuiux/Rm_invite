@@ -55,9 +55,9 @@ export const Monogram: React.FC<MonogramProps> = ({
         className={`absolute inset-1 rounded-full border border-dashed pointer-events-none ${colorStyles.innerBorder}`}
       />
 
-      <div className={`font-serif tracking-widest font-normal italic flex items-center justify-center ${colorStyles.text}`}>
+      <div className={`font-serif text-lg font-normal flex items-center justify-center leading-none ${colorStyles.text}`}>
         <span>M</span>
-        <span className="text-[0.65em] mx-[1px] font-sans not-italic font-light opacity-75">&amp;</span>
+        <span className="text-[0.65em] mx-[1px] font-sans not-italic font-light opacity-80">&amp;</span>
         <span>R</span>
       </div>
     </div>

@@ -271,8 +271,8 @@ export const weddingData: WeddingData = {
 
   music: {
     src: "/assets/wedding-music.mp3",
-    title: "Auspicious Mangala Isai",
-    artist: "Traditional Instrumental"
+    title: "96 — The Love Theme",
+    artist: "Govind Vasantha (Violin & Acoustic)"
   },
 
   meta: {

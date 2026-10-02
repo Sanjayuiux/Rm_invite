@@ -81,8 +81,8 @@ export const RSVP: React.FC = () => {
         <RevealAnimation delay={0}>
           <div className="text-center mb-10 sm:mb-12">
             <SectionLabel>RSVP</SectionLabel>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
-              Will you join us?
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
+              Will You Join Us?
             </h2>
             <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-md mx-auto">
               We would be delighted to celebrate this special occasion with you.
@@ -277,7 +277,7 @@ export const RSVP: React.FC = () => {
                   <Check className="w-8 h-8 text-[#C5A869]" />
                 </div>
 
-                <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mb-2">
+                <h3 className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight mb-2">
                   Thank You
                 </h3>
 
@@ -285,8 +285,8 @@ export const RSVP: React.FC = () => {
                   Your response has been received with gratitude. We look forward to celebrating with you!
                 </p>
 
-                <div className="inline-flex items-center gap-1.5 text-[#7B2431] font-serif italic text-lg">
-                  <Heart className="w-4 h-4 fill-current text-[#7B2431]" />
+                <div className="inline-flex items-center gap-1.5 text-[#7B2431] font-serif text-2xl sm:text-3xl">
+                  <Heart className="w-4 h-4 fill-current text-[#7B2431] shrink-0" />
                   <span>With Love, Manoj &amp; Ranjani</span>
                 </div>
 

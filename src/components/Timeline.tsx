@@ -14,10 +14,10 @@ export const Timeline: React.FC = () => {
       <div className="text-center mb-16 sm:mb-20">
         <RevealAnimation delay={0}>
           <SectionLabel>Schedule</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
-            Two days of celebration
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
+            Two Days of Celebration
           </h2>
-          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.25em] text-[#854D56] mt-2 font-medium">
+          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.25em] text-[#854D56] mt-2 font-light">
             Coimbatore, Tamil Nadu
           </p>
         </RevealAnimation>
@@ -63,16 +63,16 @@ export const Timeline: React.FC = () => {
 
                     {/* Date & Day */}
                     <div className="mb-2">
-                      <span className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal">
+                      <span className="font-body text-sm sm:text-base text-[#4A0E17] font-medium">
                         {event.date}
                       </span>
-                      <span className="font-body text-[11px] uppercase tracking-[0.2em] text-[#854D56] block font-semibold">
+                      <span className="font-body text-[11px] uppercase tracking-[0.2em] text-[#854D56] block font-light">
                         {event.day}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal mb-2">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-tight mb-2">
                       {event.title}
                     </h3>
 

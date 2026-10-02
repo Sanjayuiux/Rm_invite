@@ -49,16 +49,16 @@ export const WeddingSection: React.FC = () => {
         <RevealAnimation delay={0.15}>
           <div className="my-6 sm:my-10">
             {/* Huge Number in Royal Burgundy */}
-            <div className="font-serif text-[110px] sm:text-[160px] md:text-[210px] lg:text-[240px] text-[#4A0E17] leading-none font-normal tracking-tighter select-none">
+            <div className="font-serif text-[100px] sm:text-[150px] md:text-[200px] text-[#4A0E17] leading-none font-normal select-none">
               {weddingData.wedding.dayNumber}
             </div>
 
             {/* Month & Year */}
-            <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#4A0E17] tracking-[0.25em] uppercase font-normal -mt-2 sm:-mt-6">
+            <p className="font-body text-sm sm:text-base md:text-lg text-[#4A0E17] tracking-[0.3em] uppercase font-light mt-1">
               {weddingData.wedding.monthYear}
             </p>
 
-            <p className="font-body text-xs sm:text-sm tracking-[0.35em] text-[#854D56] uppercase font-semibold mt-2">
+            <p className="font-body text-xs sm:text-sm tracking-[0.35em] text-[#854D56] uppercase font-light mt-1">
               {weddingData.wedding.day}
             </p>
           </div>
@@ -78,10 +78,10 @@ export const WeddingSection: React.FC = () => {
           <div className="max-w-2xl mx-auto space-y-6">
             {/* Heading */}
             <div>
-              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
+              <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
                 {weddingData.wedding.title}
               </h3>
-              <span className="font-body text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#7B2431] font-semibold block mt-1.5">
+              <span className="font-body text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#7B2431] font-light block mt-1.5">
                 Auspicious Muhurtham
               </span>
             </div>
@@ -89,14 +89,14 @@ export const WeddingSection: React.FC = () => {
             {/* Time Badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#7B2431]/30 bg-[#FFFFFF] text-[#4A0E17] shadow-sm">
               <Clock className="w-4 h-4 text-[#7B2431]" />
-              <span className="font-body text-xs sm:text-sm tracking-wider font-semibold">
+              <span className="font-body text-xs sm:text-sm tracking-wider font-light">
                 {weddingData.wedding.time}
               </span>
             </div>
 
             {/* Venue Information */}
             <div className="pt-2">
-              <h4 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal">
+              <h4 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal leading-tight">
                 {weddingData.wedding.venue}
               </h4>
               <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-1">

@@ -14,7 +14,7 @@ export const CoupleSection: React.FC = () => {
       <div className="text-center mb-12 sm:mb-16">
         <RevealAnimation delay={0}>
           <SectionLabel>The Couple</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4A0E17] font-normal tracking-wide max-w-2xl mx-auto">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#4A0E17] font-normal max-w-2xl mx-auto leading-tight">
             {weddingData.couple.statement}
           </h2>
         </RevealAnimation>
@@ -46,9 +46,9 @@ export const CoupleSection: React.FC = () => {
               <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold">
                 The Groom
               </span>
-              <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mt-1">
+              <h3 className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight mt-1">
                 {weddingData.couple.groom}
-                <span className="text-base text-[#854D56] font-body ml-2 font-light">
+                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-light align-middle">
                   {weddingData.couple.groomQualification}
                 </span>
               </h3>
@@ -63,9 +63,9 @@ export const CoupleSection: React.FC = () => {
               <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold">
                 The Bride
               </span>
-              <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mt-1">
+              <h3 className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight mt-1">
                 {weddingData.couple.bride}
-                <span className="text-base text-[#854D56] font-body ml-2 font-light">
+                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-light align-middle">
                   {weddingData.couple.brideQualification}
                 </span>
               </h3>

@@ -39,19 +39,19 @@ export const FinalSection: React.FC = () => {
           <span className="w-6 h-[1px] bg-[#C5A869]/70" />
         </div>
 
-        <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-wide text-[#FAF7F2] leading-[1.08] mb-6">
+        <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FAF7F2] leading-[1.0] mb-6">
           Forever
           <br />
-          <span className="font-serif italic font-normal text-[#C5A869]">starts here.</span>
+          <span className="font-serif font-normal text-[#C5A869]">starts here.</span>
         </h2>
 
         <Ornament type="small" color="#C5A869" className="opacity-75 my-6" />
 
-        <p className="font-serif text-2xl sm:text-3xl tracking-[0.25em] text-[#FAF7F2] font-light">
+        <p className="font-body text-base sm:text-lg md:text-xl tracking-[0.3em] text-[#FAF7F2] font-light">
           22 · 11 · 2026
         </p>
 
-        <p className="font-body text-xs sm:text-sm uppercase tracking-[0.28em] text-[#C5A869]/90 mt-2 font-semibold">
+        <p className="font-body text-xs sm:text-sm uppercase tracking-[0.28em] text-[#C5A869]/90 mt-2 font-light">
           Coimbatore, Tamil Nadu
         </p>
       </motion.div>

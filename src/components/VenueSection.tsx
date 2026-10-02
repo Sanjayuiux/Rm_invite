@@ -16,7 +16,7 @@ export const VenueSection: React.FC = () => {
       <div className="text-center mb-14 sm:mb-18">
         <RevealAnimation delay={0}>
           <SectionLabel>The Venue</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4A0E17] font-normal tracking-wide">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#4A0E17] font-normal leading-tight">
             {weddingData.venue.name}
           </h2>
           <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-xl mx-auto">
@@ -52,7 +52,7 @@ export const VenueSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal mb-3">
+                <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-tight mb-3">
                   Sri Lakshmi Mahal
                 </h3>
 

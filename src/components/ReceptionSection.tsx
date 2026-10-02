@@ -47,15 +47,15 @@ export const ReceptionSection: React.FC = () => {
               {weddingData.reception.title}
             </SectionLabel>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4A0E17] font-normal tracking-tight leading-[1.1] mt-2 mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#4A0E17] font-normal leading-[1.05] mt-2 mb-6">
               An evening before
               <br />
-              <span className="italic font-normal">the beginning</span>
+              <span className="text-[#7B2431]">the beginning</span>
             </h2>
 
             <div className="flex items-center gap-3 text-[#7B2431] mb-6">
               <Sparkles className="w-4 h-4 opacity-80" />
-              <span className="font-body text-xs sm:text-[13px] tracking-[0.25em] uppercase font-semibold">
+              <span className="font-body text-xs sm:text-[13px] tracking-[0.25em] uppercase font-light">
                 The Grand Reception
               </span>
             </div>
@@ -98,25 +98,25 @@ export const ReceptionSection: React.FC = () => {
               <div className="relative z-10 flex flex-col gap-6">
                 {/* Date */}
                 <div>
-                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
+                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-light block">
                     Date
                   </span>
-                  <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mt-1">
+                  <p className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight mt-1">
                     21 November 2026
                   </p>
-                  <p className="font-body text-xs tracking-[0.25em] uppercase text-[#7B2431] font-semibold mt-0.5">
+                  <p className="font-body text-xs tracking-[0.25em] uppercase text-[#7B2431] font-light mt-0.5">
                     Saturday Evening
                   </p>
                 </div>
 
                 {/* Time */}
                 <div className="border-t border-[#7B2431]/15 pt-5">
-                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
+                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-light block">
                     Time
                   </span>
                   <div className="flex items-center gap-2 mt-1">
                     <Clock className="w-4 h-4 text-[#7B2431]" />
-                    <p className="font-serif text-2xl text-[#4A0E17] font-normal">
+                    <p className="font-body text-sm sm:text-base text-[#4A0E17] font-light">
                       {weddingData.reception.time}
                     </p>
                   </div>
@@ -124,10 +124,10 @@ export const ReceptionSection: React.FC = () => {
 
                 {/* Venue */}
                 <div className="border-t border-[#7B2431]/15 pt-5">
-                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
+                  <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-light block">
                     Venue
                   </span>
-                  <p className="font-serif text-2xl text-[#4A0E17] font-normal mt-1">
+                  <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-tight mt-1">
                     {weddingData.reception.venue}
                   </p>
                   <p className="font-body text-xs sm:text-sm text-[#3B2226]/75 font-light mt-0.5">

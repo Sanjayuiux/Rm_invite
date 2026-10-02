@@ -280,9 +280,9 @@ export const InvitationGate: React.FC<InvitationGateProps> = ({ onOpenComplete }
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h1 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] tracking-wider font-normal">
+            <h1 className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight">
               {weddingData.couple.displayNames.groom}
-              <span className="font-serif text-2xl sm:text-3xl text-[#7B2431] mx-2 opacity-85">
+              <span className="font-serif text-3xl sm:text-4xl text-[#7B2431] mx-2 opacity-85">
                 &amp;
               </span>
               {weddingData.couple.displayNames.bride}

@@ -28,10 +28,10 @@ export const Hero: React.FC = () => {
             </span>
           </div>
 
-          {/* Couple Names in Aboreto */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#4A0E17] font-normal leading-[1.05] tracking-wide">
+          {/* Couple Names in Carattere Calligraphy */}
+          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#4A0E17] font-normal leading-[1.0] tracking-normal">
             <span>{weddingData.couple.displayNames.groom}</span>
-            <span className="block font-serif text-3xl sm:text-4xl md:text-5xl text-[#7B2431] my-1 sm:my-2 tracking-widest opacity-85">
+            <span className="block font-serif text-4xl sm:text-5xl md:text-6xl text-[#7B2431] my-1 opacity-85">
               &amp;
             </span>
             <span>{weddingData.couple.displayNames.bride}</span>
@@ -49,10 +49,10 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mb-4"
           >
-            <p className="font-serif text-xl sm:text-2xl text-[#4A0E17] tracking-[0.2em] font-normal">
+            <p className="font-body text-base sm:text-lg text-[#4A0E17] tracking-[0.28em] font-light uppercase">
               22 · 11 · 2026
             </p>
-            <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#854D56] mt-1 font-medium">
+            <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#854D56] mt-1 font-light">
               Coimbatore, Tamil Nadu
             </p>
           </motion.div>

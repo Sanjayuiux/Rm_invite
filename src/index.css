@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Aboreto", Georgia, serif;
-  --font-display: "Aboreto", Georgia, serif;
+  --font-serif: "Carattere", cursive, Georgia, serif;
+  --font-display: "Carattere", cursive, Georgia, serif;
   --font-sans: "Fahkwang", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: "Fahkwang", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-script: "Alex Brush", cursive;
+  --font-script: "Carattere", cursive;
 }
 
 @layer base {
@@ -21,11 +21,11 @@
     --color-gold: #B89758;
     --color-gold-light: #C5A869;
 
-    --font-serif: "Aboreto", Georgia, serif;
-    --font-display: "Aboreto", Georgia, serif;
+    --font-serif: "Carattere", cursive, Georgia, serif;
+    --font-display: "Carattere", cursive, Georgia, serif;
     --font-sans: "Fahkwang", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-body: "Fahkwang", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-script: "Alex Brush", cursive;
+    --font-script: "Carattere", cursive;
   }
 
   html {
@@ -48,22 +48,22 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Headings typography default: Aboreto display */
+  /* Headings typography default: Carattere Calligraphy */
   h1, h2, h3, h4, h5, h6, .font-serif, .font-display {
-    font-family: "Aboreto", Georgia, serif;
-    letter-spacing: 0.05em;
+    font-family: "Carattere", cursive, Georgia, serif;
+    letter-spacing: normal;
   }
 }
 
 /* Custom typography classes */
 .font-display {
-  font-family: "Aboreto", Georgia, serif !important;
-  letter-spacing: 0.05em;
+  font-family: "Carattere", cursive, Georgia, serif !important;
+  letter-spacing: normal;
 }
 
 .font-serif {
-  font-family: "Aboreto", Georgia, serif !important;
-  letter-spacing: 0.04em;
+  font-family: "Carattere", cursive, Georgia, serif !important;
+  letter-spacing: normal;
 }
 
 .font-body {
@@ -76,7 +76,28 @@
 }
 
 .font-script {
-  font-family: "Alex Brush", cursive;
+  font-family: "Carattere", cursive;
+}
+
+/* Lenis Framer-like Smooth Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 /* Subtle luxury paper grain overlay */

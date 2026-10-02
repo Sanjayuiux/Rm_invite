@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
 
         {/* Thank You Note */}
         <RevealAnimation delay={0.15}>
-          <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#4A0E17] font-normal leading-relaxed mb-4">
+          <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal leading-tight mb-4">
             Thank you for being
             <br />
             a part of our celebration.
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
             With love &amp; blessings
           </p>
 
-          <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] tracking-wide font-normal mb-2">
+          <p className="font-serif text-4xl sm:text-5xl text-[#4A0E17] font-normal leading-tight mb-2">
             {weddingData.couple.displayNames.groom} &amp; {weddingData.couple.displayNames.bride}
           </p>
 

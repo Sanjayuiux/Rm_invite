@@ -14,7 +14,7 @@ export const FamilySection: React.FC = () => {
         <RevealAnimation delay={0}>
           <SectionLabel>{weddingData.families.introLabel}</SectionLabel>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide mt-2 mb-12 sm:mb-16">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight mt-2 mb-12 sm:mb-16">
             {weddingData.families.heading}
           </h2>
         </RevealAnimation>
@@ -28,15 +28,15 @@ export const FamilySection: React.FC = () => {
                 {weddingData.families.familyOne.relation}
               </span>
 
-              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+              <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-relaxed">
                 {weddingData.families.familyOne.father}
               </p>
 
-              <span className="font-serif text-lg text-[#7B2431] my-1 opacity-75">
+              <span className="font-serif text-2xl text-[#7B2431] my-1 opacity-80">
                 &amp;
               </span>
 
-              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+              <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-relaxed">
                 {weddingData.families.familyOne.mother}
               </p>
 
@@ -51,15 +51,15 @@ export const FamilySection: React.FC = () => {
                 {weddingData.families.familyTwo.relation}
               </span>
 
-              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+              <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-relaxed">
                 {weddingData.families.familyTwo.father}
               </p>
 
-              <span className="font-serif text-lg text-[#7B2431] my-1 opacity-75">
+              <span className="font-serif text-2xl text-[#7B2431] my-1 opacity-80">
                 &amp;
               </span>
 
-              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+              <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-relaxed">
                 {weddingData.families.familyTwo.mother}
               </p>
 
@@ -71,7 +71,7 @@ export const FamilySection: React.FC = () => {
         {/* Closing Blessing Statement */}
         <RevealAnimation delay={0.35}>
           <div className="mt-14 sm:mt-18">
-            <p className="font-serif text-xl sm:text-2xl text-[#4A0E17] italic max-w-xl mx-auto font-normal">
+            <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] max-w-xl mx-auto font-normal leading-relaxed">
               "{weddingData.families.closingBlessing}"
             </p>
           </div>
