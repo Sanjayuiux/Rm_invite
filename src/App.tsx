@@ -11,7 +11,6 @@ import { ReceptionSection } from './components/ReceptionSection';
 import { Timeline } from './components/Timeline';
 import { VenueSection } from './components/VenueSection';
 import { FamilySection } from './components/FamilySection';
-import { Gallery } from './components/Gallery';
 import { RSVP } from './components/RSVP';
 import { FinalSection } from './components/FinalSection';
 import { Footer } from './components/Footer';
@@ -122,9 +121,6 @@ export const App: React.FC = () => {
 
             {/* Family Section */}
             <FamilySection />
-
-            {/* Photo Gallery & Lightbox */}
-            <Gallery />
 
             {/* Stationery RSVP Form */}
             <RSVP />

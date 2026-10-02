@@ -26,7 +26,6 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
     { label: 'Reception', href: '#reception' },
     { label: 'Timeline', href: '#timeline' },
     { label: 'Venue', href: '#venue' },
-    { label: 'Gallery', href: '#gallery' },
     { label: 'RSVP', href: '#rsvp' },
   ];
 

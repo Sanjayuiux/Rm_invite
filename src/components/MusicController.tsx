@@ -150,7 +150,7 @@ export const MusicController: React.FC<MusicControllerProps> = ({ shouldStart = 
             )}
           </div>
 
-          <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-light text-[#4A0E17]">
+          <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-normal text-[#4A0E17]">
             {isPlaying ? 'Music On' : 'Music Off'}
           </span>
         </button>

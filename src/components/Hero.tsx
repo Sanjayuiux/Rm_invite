@@ -28,10 +28,10 @@ export const Hero: React.FC = () => {
             </span>
           </div>
 
-          {/* Couple Names in Carattere Calligraphy */}
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#4A0E17] font-normal leading-[1.0] tracking-normal">
+          {/* Couple Names in Petit Formal Script */}
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#4A0E17] font-normal leading-[1.2] tracking-normal">
             <span>{weddingData.couple.displayNames.groom}</span>
-            <span className="block font-serif text-4xl sm:text-5xl md:text-6xl text-[#7B2431] my-1 opacity-85">
+            <span className="block font-serif text-2xl sm:text-3xl md:text-4xl text-[#7B2431] my-1 opacity-85">
               &amp;
             </span>
             <span>{weddingData.couple.displayNames.bride}</span>

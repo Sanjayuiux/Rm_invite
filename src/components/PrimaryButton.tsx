@@ -24,7 +24,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'relative inline-flex items-center justify-center font-body text-center font-light tracking-[0.22em] uppercase transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#7B2431] focus-visible:ring-offset-2';
+    'relative inline-flex items-center justify-center font-body text-center font-normal tracking-[0.18em] uppercase transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#7B2431] focus-visible:ring-offset-2';
 
   const sizeStyles = {
     sm: 'text-[11px] py-2.5 px-5 gap-2',

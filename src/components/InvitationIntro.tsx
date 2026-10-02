@@ -67,9 +67,9 @@ export const InvitationIntro: React.FC = () => {
         <RevealAnimation delay={0.35}>
           <div className="mt-10 sm:mt-12 flex flex-col items-center">
             <div className="text-center">
-              <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal leading-[1.2]">
                 {weddingData.couple.groom}
-                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-light align-middle">
+                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-normal align-middle">
                   {weddingData.couple.groomQualification}
                 </span>
               </h3>
@@ -77,16 +77,16 @@ export const InvitationIntro: React.FC = () => {
 
             <div className="my-2 flex items-center justify-center gap-3">
               <span className="w-8 h-[1px] bg-[#7B2431]/40" />
-              <span className="font-serif text-2xl sm:text-3xl text-[#7B2431] font-normal italic">
+              <span className="font-serif text-xl sm:text-2xl text-[#7B2431] font-normal">
                 weds
               </span>
               <span className="w-8 h-[1px] bg-[#7B2431]/40" />
             </div>
 
             <div className="text-center">
-              <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal leading-[1.2]">
                 {weddingData.couple.bride}
-                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-light align-middle">
+                <span className="text-xs sm:text-sm text-[#854D56] font-body ml-2 font-normal align-middle">
                   {weddingData.couple.brideQualification}
                 </span>
               </h3>
