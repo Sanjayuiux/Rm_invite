@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Clock, MapPin } from 'lucide-react';
 import { SectionLabel } from './SectionLabel';
 import { Ornament } from './Ornament';
+import { RevealAnimation } from './RevealAnimation';
 import { weddingData } from '../data/weddingData';
 
 export const Timeline: React.FC = () => {
@@ -12,13 +12,15 @@ export const Timeline: React.FC = () => {
       className="relative py-24 sm:py-32 px-6 sm:px-10 max-w-4xl mx-auto overflow-hidden"
     >
       <div className="text-center mb-16 sm:mb-20">
-        <SectionLabel>Schedule</SectionLabel>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
-          Two days of celebration
-        </h2>
-        <p className="font-body text-xs sm:text-sm uppercase tracking-[0.25em] text-[#854D56] mt-2 font-medium">
-          Coimbatore, Tamil Nadu
-        </p>
+        <RevealAnimation delay={0}>
+          <SectionLabel>Schedule</SectionLabel>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
+            Two days of celebration
+          </h2>
+          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.25em] text-[#854D56] mt-2 font-medium">
+            Coimbatore, Tamil Nadu
+          </p>
+        </RevealAnimation>
       </div>
 
       {/* Editorial Vertical Timeline */}
@@ -31,12 +33,8 @@ export const Timeline: React.FC = () => {
             const isEven = index % 2 === 0;
 
             return (
-              <motion.div
+              <div
                 key={event.id}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className={`relative flex flex-col sm:flex-row items-start ${
                   isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
                 } gap-6 sm:gap-12 pl-12 sm:pl-0`}
@@ -54,56 +52,61 @@ export const Timeline: React.FC = () => {
                     isEven ? 'sm:text-right sm:pr-8' : 'sm:text-left sm:pl-8'
                   }`}
                 >
-                  {/* Event Tag */}
-                  <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold block mb-1">
-                    {event.tag}
-                  </span>
-
-                  {/* Date & Day */}
-                  <div className="mb-2">
-                    <span className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal">
-                      {event.date}
-                    </span>
-                    <span className="font-body text-[11px] uppercase tracking-[0.2em] text-[#854D56] block font-semibold">
-                      {event.day}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal mb-2">
-                    {event.title}
-                  </h3>
-
-                  {/* Time */}
-                  <div
-                    className={`inline-flex items-center gap-1.5 text-[#4A0E17] bg-[#F9F0F2] px-3 py-1 border border-[#7B2431]/25 rounded-none mb-3 ${
-                      isEven ? 'sm:flex-row-reverse' : ''
-                    }`}
+                  <RevealAnimation
+                    direction={isEven ? 'left' : 'right'}
+                    delay={0.1 * index}
                   >
-                    <Clock className="w-3.5 h-3.5 text-[#7B2431]" />
-                    <span className="font-body text-xs tracking-wider font-semibold">
-                      {event.time}
+                    {/* Event Tag */}
+                    <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold block mb-1">
+                      {event.tag}
                     </span>
-                  </div>
 
-                  {/* Description */}
-                  <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light leading-relaxed mb-3">
-                    {event.description}
-                  </p>
+                    {/* Date & Day */}
+                    <div className="mb-2">
+                      <span className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal">
+                        {event.date}
+                      </span>
+                      <span className="font-body text-[11px] uppercase tracking-[0.2em] text-[#854D56] block font-semibold">
+                        {event.day}
+                      </span>
+                    </div>
 
-                  {/* Venue location line */}
-                  <div
-                    className={`flex items-center gap-1.5 text-xs text-[#854D56] font-body ${
-                      isEven ? 'sm:justify-end' : 'sm:justify-start'
-                    }`}
-                  >
-                    <MapPin className="w-3.5 h-3.5 text-[#7B2431] shrink-0" />
-                    <span>{event.venue}</span>
-                  </div>
+                    {/* Title */}
+                    <h3 className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal mb-2">
+                      {event.title}
+                    </h3>
+
+                    {/* Time */}
+                    <div
+                      className={`inline-flex items-center gap-1.5 text-[#4A0E17] bg-[#F9F0F2] px-3 py-1 border border-[#7B2431]/25 rounded-none mb-3 ${
+                        isEven ? 'sm:flex-row-reverse' : ''
+                      }`}
+                    >
+                      <Clock className="w-3.5 h-3.5 text-[#7B2431]" />
+                      <span className="font-body text-xs tracking-wider font-semibold">
+                        {event.time}
+                      </span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light leading-relaxed mb-3">
+                      {event.description}
+                    </p>
+
+                    {/* Venue location line */}
+                    <div
+                      className={`flex items-center gap-1.5 text-xs text-[#854D56] font-body ${
+                        isEven ? 'sm:justify-end' : 'sm:justify-start'
+                      }`}
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-[#7B2431] shrink-0" />
+                      <span>{event.venue}</span>
+                    </div>
+                  </RevealAnimation>
                 </div>
 
                 <div className="hidden sm:block sm:w-1/2" />
-              </motion.div>
+              </div>
             );
           })}
         </div>

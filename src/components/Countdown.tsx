@@ -1,39 +1,65 @@
 import React, { useState, useEffect } from 'react';
 
 interface CountdownProps {
-  targetDate?: string;
+  targetDate?: string | number;
 }
 
-export const Countdown: React.FC<CountdownProps> = ({
-  targetDate = '2026-11-22T06:00:00+05:30'
-}) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+// Auspicious Muhurtham: 22 November 2026, 06:00 AM IST (00:30 UTC)
+const DEFAULT_TARGET_TIMESTAMP = Date.UTC(2026, 10, 22, 0, 30, 0);
+
+function calculateRemaining(target: string | number | undefined) {
+  let targetTimestamp = DEFAULT_TARGET_TIMESTAMP;
+
+  if (typeof target === 'number') {
+    targetTimestamp = target;
+  } else if (typeof target === 'string') {
+    const parsed = new Date(target).getTime();
+    if (!isNaN(parsed) && parsed > 0) {
+      targetTimestamp = parsed;
+    }
+  }
+
+  const now = Date.now();
+  const diff = targetTimestamp - now;
+
+  if (diff <= 0) {
+    return {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+      isPassed: true,
+    };
+  }
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / (3600 * 24));
+  const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
     isPassed: false,
-  });
+  };
+}
+
+export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
+  // Initialize with live calculated values immediately (no 00 flash)
+  const [timeLeft, setTimeLeft] = useState(() => calculateRemaining(targetDate));
 
   useEffect(() => {
-    const calculateTime = () => {
-      const difference = new Date(targetDate).getTime() - new Date().getTime();
+    // Initial immediate calculation
+    setTimeLeft(calculateRemaining(targetDate));
 
-      if (difference <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isPassed: true });
-        return;
-      }
+    // Tick every second
+    const interval = setInterval(() => {
+      setTimeLeft(calculateRemaining(targetDate));
+    }, 1000);
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / 1000 / 60) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      setTimeLeft({ days, hours, minutes, seconds, isPassed: false });
-    };
-
-    calculateTime();
-    const interval = setInterval(calculateTime, 1000);
     return () => clearInterval(interval);
   }, [targetDate]);
 
@@ -57,13 +83,13 @@ export const Countdown: React.FC<CountdownProps> = ({
   return (
     <div
       className="w-full max-w-xl mx-auto py-8 sm:py-12 select-none"
-      aria-label="Countdown to wedding ceremony"
+      aria-label="Live countdown to wedding ceremony"
     >
       <div className="grid grid-cols-4 gap-2 sm:gap-6 text-center">
         {units.map((unit, index) => (
           <div key={unit.label} className="flex flex-col items-center relative">
-            {/* Elegant Serif Number */}
-            <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal tracking-tight">
+            {/* Elegant Serif Number with smooth tick */}
+            <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal tracking-tight min-w-[1.8ch]">
               {unit.value}
             </span>
 
@@ -74,7 +100,7 @@ export const Countdown: React.FC<CountdownProps> = ({
 
             {/* Subtle separator colon except for last item */}
             {index < units.length - 1 && (
-              <span className="hidden sm:block absolute right-0 top-1/3 -translate-y-1/2 translate-x-1/2 text-[#7B2431]/40 font-serif text-xl">
+              <span className="hidden sm:block absolute right-0 top-1/3 -translate-y-1/2 translate-x-1/2 text-[#7B2431]/40 font-serif text-xl animate-pulse">
                 ·
               </span>
             )}

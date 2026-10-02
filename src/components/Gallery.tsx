@@ -39,15 +39,15 @@ export const Gallery: React.FC = () => {
         </p>
       </div>
 
-      {/* Asymmetric Masonry Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
-        {/* Item 1: Large Portrait (Cols 1-7) */}
+      {/* Balanced 4-Photo Asymmetric Editorial Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
+        {/* Photo 1: Large Editorial Portrait (Cols 1-7) */}
         <motion.div
           className="md:col-span-7"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
           <WeddingImagePlaceholder
             type="GALLERY"
@@ -63,17 +63,17 @@ export const Gallery: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Item 2: Landscape (Cols 8-12) */}
+        {/* Photo 2: Atmospheric Landscape (Cols 8-12) */}
         <motion.div
-          className="md:col-span-5 md:pt-12"
-          initial={{ opacity: 0, y: 30 }}
+          className="md:col-span-5"
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <WeddingImagePlaceholder
             type="GALLERY"
-            aspectRatio="square"
+            aspectRatio="landscape"
             label={images[1].placeholderLabel}
             src={images[1].src}
             alt={images[1].alt}
@@ -85,17 +85,17 @@ export const Gallery: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Item 3: Tall Candid (Cols 1-5) */}
+        {/* Photo 3: Candid Portrait (Cols 1-5) */}
         <motion.div
           className="md:col-span-5"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
           <WeddingImagePlaceholder
             type="GALLERY"
-            aspectRatio="tall"
+            aspectRatio="portrait"
             label={images[2].placeholderLabel}
             src={images[2].src}
             alt={images[2].alt}
@@ -107,13 +107,13 @@ export const Gallery: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Item 4: Portrait (Cols 6-12) */}
+        {/* Photo 4: Forever Embrace Landscape (Cols 6-12) */}
         <motion.div
-          className="md:col-span-7 md:-mt-8"
-          initial={{ opacity: 0, y: 30 }}
+          className="md:col-span-7"
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <WeddingImagePlaceholder
             type="GALLERY"
@@ -126,50 +126,6 @@ export const Gallery: React.FC = () => {
           />
           <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[3].caption}
-          </p>
-        </motion.div>
-
-        {/* Item 5: Wide Landscape (Cols 1-8) */}
-        <motion.div
-          className="md:col-span-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8 }}
-        >
-          <WeddingImagePlaceholder
-            type="GALLERY"
-            aspectRatio="landscape"
-            label={images[4].placeholderLabel}
-            src={images[4].src}
-            alt={images[4].alt}
-            onClick={() => openLightbox(4)}
-            className="shadow-md"
-          />
-          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
-            {images[4].caption}
-          </p>
-        </motion.div>
-
-        {/* Item 6: Square/Portrait (Cols 9-12) */}
-        <motion.div
-          className="md:col-span-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-        >
-          <WeddingImagePlaceholder
-            type="GALLERY"
-            aspectRatio="portrait"
-            label={images[5].placeholderLabel}
-            src={images[5].src}
-            alt={images[5].alt}
-            onClick={() => openLightbox(5)}
-            className="shadow-md"
-          />
-          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
-            {images[5].caption}
           </p>
         </motion.div>
       </div>

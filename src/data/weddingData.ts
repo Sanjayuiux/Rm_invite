@@ -254,9 +254,9 @@ export const weddingData: WeddingData = {
     {
       id: "gal-3",
       src: "/images/gallery-03.jpg",
-      alt: "Manoj & Ranjani - Candid Laughter",
-      caption: "Moments of unspoken joy.",
-      aspectRatio: "tall",
+      alt: "Manoj & Ranjani - Candid Moments",
+      caption: "Moments of unspoken joy and laughter.",
+      aspectRatio: "portrait",
       placeholderLabel: "CANDID PORTRAIT"
     },
     {
@@ -264,24 +264,8 @@ export const weddingData: WeddingData = {
       src: "/images/gallery-04.jpg",
       alt: "Manoj & Ranjani - Hand in Hand",
       caption: "Walking toward tomorrow, together.",
-      aspectRatio: "portrait",
-      placeholderLabel: "EDITORIAL MOMENT"
-    },
-    {
-      id: "gal-5",
-      src: "/images/gallery-05.jpg",
-      alt: "Sri Lakshmi Mahal Atmosphere",
-      caption: "The majestic venue awaiting our loved ones.",
       aspectRatio: "landscape",
-      placeholderLabel: "VENUE AMBIENCE"
-    },
-    {
-      id: "gal-6",
-      src: "/images/gallery-06.jpg",
-      alt: "Manoj & Ranjani - Sunset Silhouette",
-      caption: "Where forever quietly begins.",
-      aspectRatio: "landscape",
-      placeholderLabel: "SUNSET EMBRACE"
+      placeholderLabel: "FOREVER EMBRACE"
     }
   ],
 

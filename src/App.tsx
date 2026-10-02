@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { InvitationGate } from './components/InvitationGate';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
@@ -25,65 +26,70 @@ export const App: React.FC = () => {
       <CustomCursor />
 
       {/* Opening Invitation Gate (Envelope Experience) */}
-      {!invitationOpened && (
-        <InvitationGate
-          onOpenComplete={() => {
-            setInvitationOpened(true);
-            window.scrollTo({ top: 0, behavior: 'instant' });
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {!invitationOpened && (
+          <InvitationGate
+            onOpenComplete={() => {
+              setInvitationOpened(true);
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            }}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Main Wedding Website (reveals after envelope is opened) */}
-      <div
-        className={`transition-opacity duration-1000 ${
-          invitationOpened ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'
-        }`}
-      >
-        {/* Fixed Responsive Navigation */}
-        <Navigation visible={invitationOpened} />
+      {invitationOpened && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          {/* Fixed Responsive Navigation */}
+          <Navigation visible={invitationOpened} />
 
-        {/* Floating Music Controller */}
-        <MusicController shouldStart={invitationOpened} />
+          {/* Floating Music Controller */}
+          <MusicController shouldStart={invitationOpened} />
 
-        <main>
-          {/* Hero Section */}
-          <Hero />
+          <main>
+            {/* Hero Section */}
+            <Hero />
 
-          {/* Wedding Invitation Formal Intro & Parents' Blessing */}
-          <InvitationIntro />
+            {/* Wedding Invitation Formal Intro & Parents' Blessing */}
+            <InvitationIntro />
 
-          {/* The Couple Section */}
-          <CoupleSection />
+            {/* The Couple Section */}
+            <CoupleSection />
 
-          {/* The Wedding Ceremony & Save the Date with Countdown */}
-          <WeddingSection />
+            {/* The Wedding Ceremony & Save the Date with Live Countdown */}
+            <WeddingSection />
 
-          {/* The Reception Section */}
-          <ReceptionSection />
+            {/* The Reception Section */}
+            <ReceptionSection />
 
-          {/* Two Days Timeline */}
-          <Timeline />
+            {/* Two Days Timeline */}
+            <Timeline />
 
-          {/* The Venue Section */}
-          <VenueSection />
+            {/* The Venue Section */}
+            <VenueSection />
 
-          {/* Family Section */}
-          <FamilySection />
+            {/* Family Section */}
+            <FamilySection />
 
-          {/* Photo Gallery & Lightbox */}
-          <Gallery />
+            {/* Photo Gallery & Lightbox */}
+            <Gallery />
 
-          {/* Stationery RSVP Form */}
-          <RSVP />
+            {/* Stationery RSVP Form */}
+            <RSVP />
 
-          {/* Final Emotional Photograph Section */}
-          <FinalSection />
-        </main>
+            {/* Final Emotional Photograph Section */}
+            <FinalSection />
+          </main>
 
-        {/* Final Closing & Appreciation Footer */}
-        <Footer />
-      </div>
+          {/* Final Closing & Appreciation Footer */}
+          <Footer />
+        </motion.div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { SectionLabel } from './SectionLabel';
 import { Ornament } from './Ornament';
+import { RevealAnimation } from './RevealAnimation';
 import { weddingData } from '../data/weddingData';
 
 export const FamilySection: React.FC = () => {
@@ -11,81 +11,71 @@ export const FamilySection: React.FC = () => {
       className="relative py-24 sm:py-32 px-6 sm:px-10 bg-[#FAF4F5]/50 border-t border-[#7B2431]/20 text-center"
     >
       <div className="max-w-4xl mx-auto">
-        <SectionLabel>{weddingData.families.introLabel}</SectionLabel>
+        <RevealAnimation delay={0}>
+          <SectionLabel>{weddingData.families.introLabel}</SectionLabel>
 
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide mt-2 mb-12 sm:mb-16">
-          {weddingData.families.heading}
-        </h2>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide mt-2 mb-12 sm:mb-16">
+            {weddingData.families.heading}
+          </h2>
+        </RevealAnimation>
 
         {/* Two Families Side by Side with Pure Editorial Typography */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Groom's Parents */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center p-8 bg-[#FFFFFF] border border-[#7B2431]/25 shadow-sm"
-          >
-            <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold mb-3">
-              {weddingData.families.familyOne.relation}
-            </span>
+          <RevealAnimation direction="left" delay={0.15}>
+            <div className="flex flex-col items-center p-8 bg-[#FFFFFF] border border-[#7B2431]/25 shadow-sm">
+              <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold mb-3">
+                {weddingData.families.familyOne.relation}
+              </span>
 
-            <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
-              {weddingData.families.familyOne.father}
-            </p>
+              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+                {weddingData.families.familyOne.father}
+              </p>
 
-            <span className="font-script text-xl text-[#7B2431] my-1">
-              &amp;
-            </span>
+              <span className="font-script text-xl text-[#7B2431] my-1">
+                &amp;
+              </span>
 
-            <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
-              {weddingData.families.familyOne.mother}
-            </p>
+              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+                {weddingData.families.familyOne.mother}
+              </p>
 
-            <Ornament type="small" color="#7B2431" className="opacity-50 mt-4" />
-          </motion.div>
+              <Ornament type="small" color="#7B2431" className="opacity-50 mt-4" />
+            </div>
+          </RevealAnimation>
 
           {/* Bride's Parents */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center p-8 bg-[#FFFFFF] border border-[#7B2431]/25 shadow-sm"
-          >
-            <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold mb-3">
-              {weddingData.families.familyTwo.relation}
-            </span>
+          <RevealAnimation direction="right" delay={0.25}>
+            <div className="flex flex-col items-center p-8 bg-[#FFFFFF] border border-[#7B2431]/25 shadow-sm">
+              <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold mb-3">
+                {weddingData.families.familyTwo.relation}
+              </span>
 
-            <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
-              {weddingData.families.familyTwo.father}
-            </p>
+              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+                {weddingData.families.familyTwo.father}
+              </p>
 
-            <span className="font-script text-xl text-[#7B2431] my-1">
-              &amp;
-            </span>
+              <span className="font-script text-xl text-[#7B2431] my-1">
+                &amp;
+              </span>
 
-            <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
-              {weddingData.families.familyTwo.mother}
-            </p>
+              <p className="font-serif text-2xl sm:text-3xl text-[#4A0E17] font-normal leading-relaxed">
+                {weddingData.families.familyTwo.mother}
+              </p>
 
-            <Ornament type="small" color="#7B2431" className="opacity-50 mt-4" />
-          </motion.div>
+              <Ornament type="small" color="#7B2431" className="opacity-50 mt-4" />
+            </div>
+          </RevealAnimation>
         </div>
 
         {/* Closing Blessing Statement */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-14 sm:mt-18"
-        >
-          <p className="font-serif text-xl sm:text-2xl text-[#4A0E17] italic max-w-xl mx-auto font-normal">
-            "{weddingData.families.closingBlessing}"
-          </p>
-        </motion.div>
+        <RevealAnimation delay={0.35}>
+          <div className="mt-14 sm:mt-18">
+            <p className="font-serif text-xl sm:text-2xl text-[#4A0E17] italic max-w-xl mx-auto font-normal">
+              "{weddingData.families.closingBlessing}"
+            </p>
+          </div>
+        </RevealAnimation>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { Check, Heart } from 'lucide-react';
 import { SectionLabel } from './SectionLabel';
 import { PrimaryButton } from './PrimaryButton';
 import { Ornament } from './Ornament';
+import { RevealAnimation } from './RevealAnimation';
 
 export interface RSVPFormData {
   name: string;
@@ -54,7 +55,6 @@ export const RSVP: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Save to local storage for offline / prototype resilience
     try {
       const existingRsvps = JSON.parse(localStorage.getItem('wedding_rsvps') || '[]');
       existingRsvps.push({
@@ -78,32 +78,35 @@ export const RSVP: React.FC = () => {
       className="relative py-24 sm:py-32 px-6 sm:px-10 bg-[#FAF4F5]/60 border-y border-[#7B2431]/20"
     >
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10 sm:mb-12">
-          <SectionLabel>RSVP</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
-            Will you join us?
-          </h2>
-          <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-md mx-auto">
-            We would be delighted to celebrate this special occasion with you.
-          </p>
-        </div>
+        <RevealAnimation delay={0}>
+          <div className="text-center mb-10 sm:mb-12">
+            <SectionLabel>RSVP</SectionLabel>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
+              Will you join us?
+            </h2>
+            <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-md mx-auto">
+              We would be delighted to celebrate this special occasion with you.
+            </p>
+          </div>
+        </RevealAnimation>
 
         {/* Stationery RSVP Card in Pure White with Burgundy Framing */}
-        <div className="relative bg-[#FFFFFF] border border-[#7B2431]/30 p-7 sm:p-12 shadow-sm">
-          {/* Subtle inner border for letterpress/stationery feel */}
-          <div className="absolute inset-2 border border-dashed border-[#7B2431]/15 pointer-events-none" />
+        <RevealAnimation delay={0.15}>
+          <div className="relative bg-[#FFFFFF] border border-[#7B2431]/30 p-7 sm:p-12 shadow-sm">
+            {/* Subtle inner border for letterpress/stationery feel */}
+            <div className="absolute inset-2 border border-dashed border-[#7B2431]/15 pointer-events-none" />
 
-          <AnimatePresence mode="wait">
-            {!isSubmitted ? (
-              <motion.form
-                key="form"
-                onSubmit={handleSubmit}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="relative z-10 space-y-7"
-                noValidate
-              >
+            <AnimatePresence mode="wait">
+              {!isSubmitted ? (
+                <motion.form
+                  key="form"
+                  onSubmit={handleSubmit}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="relative z-10 space-y-7"
+                  noValidate
+                >
                 {/* Name Field */}
                 <div>
                   <label
@@ -301,7 +304,8 @@ export const RSVP: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+          </div>
+        </RevealAnimation>
 
         <div className="text-center mt-10">
           <Ornament type="small" color="#7B2431" className="opacity-50" />
