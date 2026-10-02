@@ -22,16 +22,16 @@ export const Hero: React.FC = () => {
         >
           {/* Label */}
           <div className="flex items-center justify-center lg:justify-start gap-2.5 mb-4">
-            <span className="w-5 h-[1px] bg-[#B69A61]" />
-            <span className="font-body text-[11px] sm:text-[12px] tracking-[0.3em] uppercase text-[#B69A61] font-medium">
+            <span className="w-5 h-[1px] bg-[#7B2431]" />
+            <span className="font-body text-[11px] sm:text-[12px] tracking-[0.3em] uppercase text-[#7B2431] font-semibold">
               A Celebration of Love
             </span>
           </div>
 
           {/* Couple Names */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#183B2C] font-normal leading-[1.05] tracking-tight">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#4A0E17] font-normal leading-[1.05] tracking-tight">
             <span>{weddingData.couple.displayNames.groom}</span>
-            <span className="block font-script text-4xl sm:text-5xl md:text-6xl text-[#B69A61] my-1 sm:my-2 lg:-ml-2">
+            <span className="block font-script text-4xl sm:text-5xl md:text-6xl text-[#7B2431] my-1 sm:my-2 lg:-ml-2">
               and
             </span>
             <span>{weddingData.couple.displayNames.bride}</span>
@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
 
           {/* Decorative Divider */}
           <div className="my-5 flex items-center justify-center lg:justify-start">
-            <Ornament type="small" className="opacity-70" />
+            <Ornament type="small" color="#7B2431" className="opacity-75" />
           </div>
 
           {/* Date Highlight */}
@@ -49,21 +49,21 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mb-4"
           >
-            <p className="font-serif text-xl sm:text-2xl text-[#183B2C] tracking-[0.2em] font-normal">
+            <p className="font-serif text-xl sm:text-2xl text-[#4A0E17] tracking-[0.2em] font-normal">
               22 · 11 · 2026
             </p>
-            <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#788D78] mt-1">
+            <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#854D56] mt-1 font-medium">
               Coimbatore, Tamil Nadu
             </p>
           </motion.div>
 
           {/* Invitation statement */}
-          <p className="font-body text-[#2A2119]/80 text-sm sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0 font-light mt-2">
+          <p className="font-body text-[#3B2226]/85 text-sm sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0 font-light mt-2">
             Together with our families, we invite you to celebrate our wedding.
           </p>
         </motion.div>
 
-        {/* Right Column: Editorial Photograph Placeholder (Desktop 7 cols, Mobile 100%) */}
+        {/* Right Column: Editorial Photograph Placeholder */}
         <motion.div
           className="lg:col-span-7 order-1 lg:order-2 w-full"
           initial={{ opacity: 0, scale: 1.04 }}
@@ -92,13 +92,13 @@ export const Hero: React.FC = () => {
       >
         <a
           href="#invitation"
-          className="inline-flex flex-col items-center gap-1.5 text-[#2A2119]/60 hover:text-[#183B2C] transition-colors group focus:outline-none"
+          className="inline-flex flex-col items-center gap-1.5 text-[#3B2226]/60 hover:text-[#5C131D] transition-colors group focus:outline-none"
           aria-label="Scroll to discover invitation details"
         >
           <span className="font-body text-[10px] uppercase tracking-[0.3em] font-medium">
             Scroll to discover
           </span>
-          <ChevronDown className="w-4 h-4 text-[#B69A61] group-hover:translate-y-1 transition-transform" />
+          <ChevronDown className="w-4 h-4 text-[#7B2431] group-hover:translate-y-1 transition-transform" />
         </a>
       </motion.div>
     </section>

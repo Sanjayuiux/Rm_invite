@@ -2,13 +2,13 @@ import React from 'react';
 
 interface MonogramProps {
   size?: 'sm' | 'md' | 'lg' | 'seal';
-  variant?: 'gold' | 'forest' | 'cream' | 'subtle';
+  variant?: 'burgundy' | 'gold' | 'white' | 'subtle';
   className?: string;
 }
 
 export const Monogram: React.FC<MonogramProps> = ({
   size = 'md',
-  variant = 'gold',
+  variant = 'burgundy',
   className = ''
 }) => {
   const sizeClasses = {
@@ -19,29 +19,29 @@ export const Monogram: React.FC<MonogramProps> = ({
   }[size];
 
   const colorStyles = {
+    burgundy: {
+      border: 'border-[#5C131D]',
+      text: 'text-[#5C131D]',
+      bg: 'bg-transparent',
+      innerBorder: 'border-[#5C131D]/25'
+    },
     gold: {
-      border: 'border-[#B69A61]/70',
-      text: 'text-[#B69A61]',
+      border: 'border-[#B89758]/70',
+      text: 'text-[#B89758]',
       bg: 'bg-transparent',
-      innerBorder: 'border-[#B69A61]/30'
+      innerBorder: 'border-[#B89758]/30'
     },
-    forest: {
-      border: 'border-[#183B2C]',
-      text: 'text-[#183B2C]',
-      bg: 'bg-transparent',
-      innerBorder: 'border-[#183B2C]/20'
-    },
-    cream: {
-      border: 'border-[#EEE5D2]',
-      text: 'text-[#F7F1E3]',
-      bg: 'bg-[#183B2C]',
-      innerBorder: 'border-[#B69A61]/50'
+    white: {
+      border: 'border-[#FAF7F2]',
+      text: 'text-[#FFFFFF]',
+      bg: 'bg-[#5C131D]',
+      innerBorder: 'border-[#C5A869]/50'
     },
     subtle: {
-      border: 'border-[#2A2119]/20',
-      text: 'text-[#2A2119]/80',
-      bg: 'bg-[#EEE5D2]/40',
-      innerBorder: 'border-[#B69A61]/25'
+      border: 'border-[#7B2431]/20',
+      text: 'text-[#5C131D]/80',
+      bg: 'bg-[#F9F0F2]',
+      innerBorder: 'border-[#7B2431]/20'
     }
   }[variant];
 

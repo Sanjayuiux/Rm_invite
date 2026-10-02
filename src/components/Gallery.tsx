@@ -31,10 +31,10 @@ export const Gallery: React.FC = () => {
     >
       <div className="text-center mb-16 sm:mb-20">
         <SectionLabel>Visual Chronicle</SectionLabel>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#183B2C] font-normal tracking-wide">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4A0E17] font-normal tracking-wide">
           Moments in time
         </h2>
-        <p className="font-body text-xs sm:text-sm tracking-[0.2em] uppercase text-[#788D78] mt-2 font-medium">
+        <p className="font-body text-xs sm:text-sm tracking-[0.2em] uppercase text-[#854D56] mt-2 font-semibold">
           Editorial Gallery
         </p>
       </div>
@@ -58,7 +58,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(0)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[0].caption}
           </p>
         </motion.div>
@@ -80,7 +80,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(1)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[1].caption}
           </p>
         </motion.div>
@@ -102,7 +102,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(2)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[2].caption}
           </p>
         </motion.div>
@@ -124,7 +124,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(3)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[3].caption}
           </p>
         </motion.div>
@@ -146,7 +146,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(4)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[4].caption}
           </p>
         </motion.div>
@@ -168,7 +168,7 @@ export const Gallery: React.FC = () => {
             onClick={() => openLightbox(5)}
             className="shadow-md"
           />
-          <p className="font-serif text-sm sm:text-base text-[#2A2119]/80 italic mt-3 text-center sm:text-left">
+          <p className="font-serif text-sm sm:text-base text-[#3B2226]/80 italic mt-3 text-center sm:text-left">
             {images[5].caption}
           </p>
         </motion.div>

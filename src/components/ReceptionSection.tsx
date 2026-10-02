@@ -48,24 +48,24 @@ export const ReceptionSection: React.FC = () => {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <SectionLabel theme="gold" className="justify-start">
+          <SectionLabel theme="burgundy" className="justify-start">
             {weddingData.reception.title}
           </SectionLabel>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#183B2C] font-normal tracking-tight leading-[1.1] mt-2 mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4A0E17] font-normal tracking-tight leading-[1.1] mt-2 mb-6">
             An evening before
             <br />
             <span className="italic font-normal">the beginning</span>
           </h2>
 
-          <div className="flex items-center gap-3 text-[#B69A61] mb-6">
-            <Sparkles className="w-4 h-4 opacity-75" />
-            <span className="font-body text-xs sm:text-[13px] tracking-[0.25em] uppercase font-medium">
+          <div className="flex items-center gap-3 text-[#7B2431] mb-6">
+            <Sparkles className="w-4 h-4 opacity-80" />
+            <span className="font-body text-xs sm:text-[13px] tracking-[0.25em] uppercase font-semibold">
               The Grand Reception
             </span>
           </div>
 
-          <p className="font-body text-base sm:text-lg text-[#2A2119]/80 font-light leading-relaxed max-w-lg mb-8">
+          <p className="font-body text-base sm:text-lg text-[#3B2226]/80 font-light leading-relaxed max-w-lg mb-8">
             Before the sacred vows at dawn, join us under the evening lights for celebrations, music, and an exquisite dinner banquet with family and friends.
           </p>
 
@@ -101,54 +101,54 @@ export const ReceptionSection: React.FC = () => {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative p-8 sm:p-10 bg-[#EEE5D2]/70 border border-[#B69A61]/50 text-left">
+          <div className="relative p-8 sm:p-10 bg-[#FFFFFF] border border-[#7B2431]/25 text-left shadow-sm">
             {/* Subtle inner dashed line */}
-            <div className="absolute inset-2 border border-dashed border-[#B69A61]/25 pointer-events-none" />
+            <div className="absolute inset-2 border border-dashed border-[#7B2431]/15 pointer-events-none" />
 
             <div className="relative z-10 flex flex-col gap-6">
               {/* Date */}
               <div>
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
                   Date
                 </span>
-                <p className="font-serif text-3xl sm:text-4xl text-[#183B2C] font-normal mt-1">
+                <p className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mt-1">
                   21 November 2026
                 </p>
-                <p className="font-body text-xs tracking-[0.25em] uppercase text-[#B69A61] font-semibold mt-0.5">
+                <p className="font-body text-xs tracking-[0.25em] uppercase text-[#7B2431] font-semibold mt-0.5">
                   Saturday Evening
                 </p>
               </div>
 
               {/* Time */}
-              <div className="border-t border-[#B69A61]/25 pt-5">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+              <div className="border-t border-[#7B2431]/15 pt-5">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
                   Time
                 </span>
                 <div className="flex items-center gap-2 mt-1">
-                  <Clock className="w-4 h-4 text-[#B69A61]" />
-                  <p className="font-serif text-2xl text-[#183B2C] font-normal">
+                  <Clock className="w-4 h-4 text-[#7B2431]" />
+                  <p className="font-serif text-2xl text-[#4A0E17] font-normal">
                     {weddingData.reception.time}
                   </p>
                 </div>
               </div>
 
               {/* Venue */}
-              <div className="border-t border-[#B69A61]/25 pt-5">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+              <div className="border-t border-[#7B2431]/15 pt-5">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#854D56] font-semibold block">
                   Venue
                 </span>
-                <p className="font-serif text-2xl text-[#183B2C] font-normal mt-1">
+                <p className="font-serif text-2xl text-[#4A0E17] font-normal mt-1">
                   {weddingData.reception.venue}
                 </p>
-                <p className="font-body text-xs sm:text-sm text-[#2A2119]/75 font-light mt-0.5">
+                <p className="font-body text-xs sm:text-sm text-[#3B2226]/75 font-light mt-0.5">
                   {weddingData.reception.address}
                 </p>
-                <p className="font-body text-xs text-[#788D78] uppercase tracking-[0.18em] font-medium mt-0.5">
+                <p className="font-body text-xs text-[#854D56] uppercase tracking-[0.18em] font-semibold mt-0.5">
                   {weddingData.reception.city}
                 </p>
               </div>
 
-              <Ornament type="small" className="opacity-50 mt-2" />
+              <Ornament type="small" color="#7B2431" className="opacity-50 mt-2" />
             </div>
           </div>
         </motion.div>

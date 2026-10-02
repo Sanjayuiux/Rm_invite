@@ -7,7 +7,6 @@ export const CustomCursor: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only enable on desktop with fine mouse pointer
     if (window.matchMedia('(pointer: coarse)').matches) {
       return;
     }
@@ -27,7 +26,6 @@ export const CustomCursor: React.FC = () => {
       setIsVisible(true);
     };
 
-    // Check if hovering interactive element
     const handleElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -53,16 +51,16 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      {/* Outer ring */}
+      {/* Outer ring in burgundy */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border border-[#B69A61]/70 pointer-events-none"
+        className="fixed top-0 left-0 rounded-full border border-[#7B2431]/70 pointer-events-none"
         animate={{
           x: mousePosition.x - (isHovered ? 20 : 12),
           y: mousePosition.y - (isHovered ? 20 : 12),
           width: isHovered ? 40 : 24,
           height: isHovered ? 40 : 24,
-          borderColor: isHovered ? '#183B2C' : 'rgba(182, 154, 97, 0.75)',
-          backgroundColor: isHovered ? 'rgba(182, 154, 97, 0.12)' : 'transparent',
+          borderColor: isHovered ? '#4A0E17' : 'rgba(123, 36, 49, 0.75)',
+          backgroundColor: isHovered ? 'rgba(123, 36, 49, 0.12)' : 'transparent',
         }}
         transition={{
           type: 'spring',
@@ -71,12 +69,12 @@ export const CustomCursor: React.FC = () => {
           mass: 0.5,
         }}
       />
-      {/* Tiny center dot */}
+      {/* Center dot in deep burgundy */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 rounded-full bg-[#183B2C] pointer-events-none"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#5C131D] pointer-events-none"
         animate={{
-          x: mousePosition.x - 2,
-          y: mousePosition.y - 2,
+          x: mousePosition.x - 3,
+          y: mousePosition.y - 3,
           opacity: isHovered ? 0.4 : 0.9,
         }}
         transition={{

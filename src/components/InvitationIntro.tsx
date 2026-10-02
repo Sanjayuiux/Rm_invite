@@ -21,7 +21,7 @@ export const InvitationIntro: React.FC = () => {
         <SectionLabel>Wedding Invitation</SectionLabel>
 
         {/* Heading */}
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#183B2C] font-normal tracking-wide mt-2 mb-8 sm:mb-10">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide mt-2 mb-8 sm:mb-10">
           With the blessings of our families
         </h2>
 
@@ -29,30 +29,30 @@ export const InvitationIntro: React.FC = () => {
         <div className="flex flex-col items-center gap-3 sm:gap-4 my-2">
           {/* Family One */}
           <div className="text-center">
-            <p className="font-serif text-xl sm:text-2xl text-[#2A2119] font-normal leading-relaxed">
+            <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
               {weddingData.families.familyOne.father}
             </p>
-            <span className="font-script text-lg sm:text-xl text-[#B69A61] block -my-0.5">
+            <span className="font-script text-lg sm:text-xl text-[#7B2431] block -my-0.5">
               &amp;
             </span>
-            <p className="font-serif text-xl sm:text-2xl text-[#2A2119] font-normal leading-relaxed">
+            <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
               {weddingData.families.familyOne.mother}
             </p>
           </div>
 
-          <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#788D78] font-medium my-1">
+          <p className="font-body text-[11px] uppercase tracking-[0.25em] text-[#854D56] font-medium my-1">
             and
           </p>
 
           {/* Family Two */}
           <div className="text-center">
-            <p className="font-serif text-xl sm:text-2xl text-[#2A2119] font-normal leading-relaxed">
+            <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
               {weddingData.families.familyTwo.father}
             </p>
-            <span className="font-script text-lg sm:text-xl text-[#B69A61] block -my-0.5">
+            <span className="font-script text-lg sm:text-xl text-[#7B2431] block -my-0.5">
               &amp;
             </span>
-            <p className="font-serif text-xl sm:text-2xl text-[#2A2119] font-normal leading-relaxed">
+            <p className="font-serif text-xl sm:text-2xl text-[#3B2226] font-normal leading-relaxed">
               {weddingData.families.familyTwo.mother}
             </p>
           </div>
@@ -62,33 +62,33 @@ export const InvitationIntro: React.FC = () => {
         <Ornament type="divider" className="my-8 sm:my-10" />
 
         {/* Invitation Text */}
-        <p className="font-body text-base sm:text-lg md:text-xl text-[#2A2119]/85 max-w-2xl leading-relaxed font-light my-2">
+        <p className="font-body text-base sm:text-lg md:text-xl text-[#3B2226]/85 max-w-2xl leading-relaxed font-light my-2">
           {weddingData.families.invitationCopy}
         </p>
 
         {/* Couple Names with Qualifications */}
         <div className="mt-10 sm:mt-12 flex flex-col items-center">
           <div className="text-center">
-            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#183B2C] font-normal tracking-wide">
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
               {weddingData.couple.groom}
-              <span className="text-base sm:text-lg text-[#788D78] font-body ml-2 font-light">
+              <span className="text-base sm:text-lg text-[#854D56] font-body ml-2 font-light">
                 {weddingData.couple.groomQualification}
               </span>
             </h3>
           </div>
 
           <div className="my-2 flex items-center justify-center gap-3">
-            <span className="w-8 h-[1px] bg-[#B69A61]/50" />
-            <span className="font-script text-2xl sm:text-3xl text-[#B69A61] font-normal">
+            <span className="w-8 h-[1px] bg-[#7B2431]/40" />
+            <span className="font-script text-2xl sm:text-3xl text-[#7B2431] font-normal">
               weds
             </span>
-            <span className="w-8 h-[1px] bg-[#B69A61]/50" />
+            <span className="w-8 h-[1px] bg-[#7B2431]/40" />
           </div>
 
           <div className="text-center">
-            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#183B2C] font-normal tracking-wide">
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
               {weddingData.couple.bride}
-              <span className="text-base sm:text-lg text-[#788D78] font-body ml-2 font-light">
+              <span className="text-base sm:text-lg text-[#854D56] font-body ml-2 font-light">
                 {weddingData.couple.brideQualification}
               </span>
             </h3>

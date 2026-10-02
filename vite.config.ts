@@ -10,6 +10,11 @@ export default defineConfig({
   ],
   server: {
     host: true,
-    allowedHosts: true, // Allow tunnel hostnames like loca.lt, lhr.life, etc.
+    allowedHosts: true,
+  },
+  preview: {
+    host: true,
+    allowedHosts: true,
+    port: 5173,
   },
 })

@@ -66,7 +66,6 @@ export const RSVP: React.FC = () => {
       // LocalStorage fallback
     }
 
-    // Simulate clean network request to backend / Google Sheet webhook
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -76,23 +75,23 @@ export const RSVP: React.FC = () => {
   return (
     <section
       id="rsvp"
-      className="relative py-24 sm:py-32 px-6 sm:px-10 bg-[#EEE5D2]/35 border-y border-[#B69A61]/25"
+      className="relative py-24 sm:py-32 px-6 sm:px-10 bg-[#FAF4F5]/60 border-y border-[#7B2431]/20"
     >
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10 sm:mb-12">
           <SectionLabel>RSVP</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#183B2C] font-normal tracking-wide">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal tracking-wide">
             Will you join us?
           </h2>
-          <p className="font-body text-sm sm:text-base text-[#2A2119]/80 font-light mt-2 max-w-md mx-auto">
+          <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-md mx-auto">
             We would be delighted to celebrate this special occasion with you.
           </p>
         </div>
 
-        {/* Stationery RSVP Card */}
-        <div className="relative bg-[#F7F1E3] border border-[#B69A61]/45 p-7 sm:p-12 shadow-sm">
+        {/* Stationery RSVP Card in Pure White with Burgundy Framing */}
+        <div className="relative bg-[#FFFFFF] border border-[#7B2431]/30 p-7 sm:p-12 shadow-sm">
           {/* Subtle inner border for letterpress/stationery feel */}
-          <div className="absolute inset-2 border border-dashed border-[#B69A61]/20 pointer-events-none" />
+          <div className="absolute inset-2 border border-dashed border-[#7B2431]/15 pointer-events-none" />
 
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
@@ -109,9 +108,9 @@ export const RSVP: React.FC = () => {
                 <div>
                   <label
                     htmlFor="rsvp-name"
-                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#183B2C] font-semibold mb-2"
+                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#4A0E17] font-semibold mb-2"
                   >
-                    Your Full Name <span className="text-[#B69A61]">*</span>
+                    Your Full Name <span className="text-[#7B2431]">*</span>
                   </label>
                   <input
                     id="rsvp-name"
@@ -123,10 +122,10 @@ export const RSVP: React.FC = () => {
                       if (errors.name) setErrors({ ...errors, name: '' });
                     }}
                     placeholder="e.g. Ramesh Kumar"
-                    className="w-full bg-transparent border-b border-[#2A2119]/30 focus:border-[#183B2C] py-2 text-base text-[#2A2119] placeholder:text-[#2A2119]/35 focus:outline-none transition-colors font-body"
+                    className="w-full bg-transparent border-b border-[#3B2226]/20 focus:border-[#4A0E17] py-2 text-base text-[#3B2226] placeholder:text-[#3B2226]/35 focus:outline-none transition-colors font-body"
                   />
                   {errors.name && (
-                    <p className="font-body text-xs text-[#9d3d3d] mt-1.5">{errors.name}</p>
+                    <p className="font-body text-xs text-[#9d2424] mt-1.5 font-medium">{errors.name}</p>
                   )}
                 </div>
 
@@ -134,9 +133,9 @@ export const RSVP: React.FC = () => {
                 <div>
                   <label
                     htmlFor="rsvp-phone"
-                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#183B2C] font-semibold mb-2"
+                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#4A0E17] font-semibold mb-2"
                   >
-                    Phone / WhatsApp Number <span className="text-[#B69A61]">*</span>
+                    Phone / WhatsApp Number <span className="text-[#7B2431]">*</span>
                   </label>
                   <input
                     id="rsvp-phone"
@@ -148,17 +147,17 @@ export const RSVP: React.FC = () => {
                       if (errors.phone) setErrors({ ...errors, phone: '' });
                     }}
                     placeholder="e.g. +91 98765 43210"
-                    className="w-full bg-transparent border-b border-[#2A2119]/30 focus:border-[#183B2C] py-2 text-base text-[#2A2119] placeholder:text-[#2A2119]/35 focus:outline-none transition-colors font-body"
+                    className="w-full bg-transparent border-b border-[#3B2226]/20 focus:border-[#4A0E17] py-2 text-base text-[#3B2226] placeholder:text-[#3B2226]/35 focus:outline-none transition-colors font-body"
                   />
                   {errors.phone && (
-                    <p className="font-body text-xs text-[#9d3d3d] mt-1.5">{errors.phone}</p>
+                    <p className="font-body text-xs text-[#9d2424] mt-1.5 font-medium">{errors.phone}</p>
                   )}
                 </div>
 
                 {/* Attendance Options */}
                 <div>
-                  <span className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#183B2C] font-semibold mb-3">
-                    Will You Attend? <span className="text-[#B69A61]">*</span>
+                  <span className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#4A0E17] font-semibold mb-3">
+                    Will You Attend? <span className="text-[#7B2431]">*</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -171,8 +170,8 @@ export const RSVP: React.FC = () => {
                       }}
                       className={`py-3 px-4 text-center border font-body text-xs sm:text-[13px] uppercase tracking-[0.16em] transition-all cursor-pointer ${
                         formData.attending === 'yes'
-                          ? 'border-[#183B2C] bg-[#183B2C] text-[#F7F1E3] font-medium shadow-sm'
-                          : 'border-[#B69A61]/40 text-[#2A2119]/80 hover:border-[#B69A61] bg-white/40'
+                          ? 'border-[#5C131D] bg-[#5C131D] text-[#FFFFFF] font-semibold shadow-sm'
+                          : 'border-[#7B2431]/30 text-[#3B2226]/80 hover:border-[#5C131D] bg-white'
                       }`}
                     >
                       Yes, I'll be there
@@ -187,15 +186,15 @@ export const RSVP: React.FC = () => {
                       }}
                       className={`py-3 px-4 text-center border font-body text-xs sm:text-[13px] uppercase tracking-[0.16em] transition-all cursor-pointer ${
                         formData.attending === 'no'
-                          ? 'border-[#183B2C] bg-[#183B2C] text-[#F7F1E3] font-medium shadow-sm'
-                          : 'border-[#B69A61]/40 text-[#2A2119]/80 hover:border-[#B69A61] bg-white/40'
+                          ? 'border-[#5C131D] bg-[#5C131D] text-[#FFFFFF] font-semibold shadow-sm'
+                          : 'border-[#7B2431]/30 text-[#3B2226]/80 hover:border-[#5C131D] bg-white'
                       }`}
                     >
                       Sorry, I can't make it
                     </button>
                   </div>
                   {errors.attending && (
-                    <p className="font-body text-xs text-[#9d3d3d] mt-1.5">{errors.attending}</p>
+                    <p className="font-body text-xs text-[#9d2424] mt-1.5 font-medium">{errors.attending}</p>
                   )}
                 </div>
 
@@ -209,7 +208,7 @@ export const RSVP: React.FC = () => {
                   >
                     <label
                       htmlFor="rsvp-guests"
-                      className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#183B2C] font-semibold mb-2"
+                      className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#4A0E17] font-semibold mb-2"
                     >
                       Number of Guests (Including Yourself)
                     </label>
@@ -221,8 +220,8 @@ export const RSVP: React.FC = () => {
                           onClick={() => setFormData({ ...formData, guests: num })}
                           className={`w-10 h-10 border text-center font-serif text-lg transition-all cursor-pointer ${
                             formData.guests === num
-                              ? 'border-[#183B2C] bg-[#183B2C] text-[#F7F1E3]'
-                              : 'border-[#B69A61]/40 text-[#2A2119] hover:border-[#B69A61] bg-white/30'
+                              ? 'border-[#5C131D] bg-[#5C131D] text-[#FFFFFF]'
+                              : 'border-[#7B2431]/30 text-[#3B2226] hover:border-[#5C131D] bg-white'
                           }`}
                         >
                           {num === 5 ? '5+' : num}
@@ -236,7 +235,7 @@ export const RSVP: React.FC = () => {
                 <div>
                   <label
                     htmlFor="rsvp-message"
-                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#183B2C] font-semibold mb-2"
+                    className="block font-body text-[11px] uppercase tracking-[0.25em] text-[#4A0E17] font-semibold mb-2"
                   >
                     Warm Wishes or Note to Couple (Optional)
                   </label>
@@ -246,7 +245,7 @@ export const RSVP: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Share your blessings or note for Manoj & Ranjani..."
-                    className="w-full bg-transparent border-b border-[#2A2119]/30 focus:border-[#183B2C] py-2 text-sm text-[#2A2119] placeholder:text-[#2A2119]/35 focus:outline-none transition-colors font-body resize-none"
+                    className="w-full bg-transparent border-b border-[#3B2226]/20 focus:border-[#4A0E17] py-2 text-sm text-[#3B2226] placeholder:text-[#3B2226]/35 focus:outline-none transition-colors font-body resize-none"
                   />
                 </div>
 
@@ -271,20 +270,20 @@ export const RSVP: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative z-10 py-10 text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-[#183B2C] text-[#F7F1E3] mx-auto flex items-center justify-center mb-5 border border-[#B69A61]">
-                  <Check className="w-8 h-8 text-[#B69A61]" />
+                <div className="w-16 h-16 rounded-full bg-[#5C131D] text-[#FFFFFF] mx-auto flex items-center justify-center mb-5 border border-[#C5A869]">
+                  <Check className="w-8 h-8 text-[#C5A869]" />
                 </div>
 
-                <h3 className="font-serif text-3xl sm:text-4xl text-[#183B2C] font-normal mb-2">
+                <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal mb-2">
                   Thank You
                 </h3>
 
-                <p className="font-body text-sm sm:text-base text-[#2A2119]/80 font-light max-w-sm mx-auto leading-relaxed mb-6">
+                <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light max-w-sm mx-auto leading-relaxed mb-6">
                   Your response has been received with gratitude. We look forward to celebrating with you!
                 </p>
 
-                <div className="inline-flex items-center gap-1.5 text-[#B69A61] font-serif italic text-lg">
-                  <Heart className="w-4 h-4 fill-current text-[#B69A61]" />
+                <div className="inline-flex items-center gap-1.5 text-[#7B2431] font-serif italic text-lg">
+                  <Heart className="w-4 h-4 fill-current text-[#7B2431]" />
                   <span>With Love, Manoj &amp; Ranjani</span>
                 </div>
 
@@ -294,7 +293,7 @@ export const RSVP: React.FC = () => {
                       setIsSubmitted(false);
                       setFormData({ name: '', phone: '', attending: '', guests: 1, message: '' });
                     }}
-                    className="font-body text-xs uppercase tracking-[0.2em] text-[#788D78] hover:text-[#183B2C] underline underline-offset-4 cursor-pointer"
+                    className="font-body text-xs uppercase tracking-[0.2em] text-[#854D56] hover:text-[#4A0E17] underline underline-offset-4 cursor-pointer"
                   >
                     Submit another response
                   </button>
@@ -305,7 +304,7 @@ export const RSVP: React.FC = () => {
         </div>
 
         <div className="text-center mt-10">
-          <Ornament type="small" className="opacity-50" />
+          <Ornament type="small" color="#7B2431" className="opacity-50" />
         </div>
       </div>
     </section>

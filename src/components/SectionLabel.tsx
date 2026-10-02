@@ -3,18 +3,18 @@ import React from 'react';
 interface SectionLabelProps {
   children: React.ReactNode;
   className?: string;
-  theme?: 'dark' | 'light' | 'gold';
+  theme?: 'burgundy' | 'gold' | 'light';
 }
 
 export const SectionLabel: React.FC<SectionLabelProps> = ({
   children,
   className = '',
-  theme = 'gold'
+  theme = 'burgundy'
 }) => {
   const colorClass = {
-    gold: 'text-[#B69A61]',
-    dark: 'text-[#183B2C]',
-    light: 'text-[#D8CBB5]'
+    burgundy: 'text-[#7B2431]',
+    gold: 'text-[#B89758]',
+    light: 'text-[#F5EFEB]'
   }[theme];
 
   return (

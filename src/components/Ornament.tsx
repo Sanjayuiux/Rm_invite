@@ -3,13 +3,13 @@ import React from 'react';
 interface OrnamentProps {
   type?: 'divider' | 'flourish' | 'corner' | 'mandala' | 'small';
   className?: string;
-  color?: string; // default antique gold
+  color?: string; // default burgundy or antique gold
 }
 
 export const Ornament: React.FC<OrnamentProps> = ({
   type = 'divider',
   className = '',
-  color = '#B69A61'
+  color = '#7B2431' // Rich Burgundy
 }) => {
   if (type === 'small') {
     return (
@@ -25,7 +25,7 @@ export const Ornament: React.FC<OrnamentProps> = ({
           stroke={color}
           strokeWidth="0.8"
           fill={color}
-          fillOpacity="0.1"
+          fillOpacity="0.12"
         />
         <circle cx="8" cy="6" r="1.5" fill={color} fillOpacity="0.6" />
         <circle cx="32" cy="6" r="1.5" fill={color} fillOpacity="0.6" />
@@ -82,7 +82,7 @@ export const Ornament: React.FC<OrnamentProps> = ({
               stroke={color}
               strokeWidth="0.75"
               fill={color}
-              fillOpacity="0.06"
+              fillOpacity="0.08"
             />
             <circle cx="40" cy="22" r="1" fill={color} opacity="0.8" />
           </g>
@@ -92,25 +92,25 @@ export const Ornament: React.FC<OrnamentProps> = ({
     );
   }
 
-  // Default: Elegant traditional Indian bridal stationery horizontal divider
+  // Default: Elegant bridal stationery horizontal divider
   return (
     <div className={`flex items-center justify-center gap-3 my-6 select-none ${className}`}>
-      <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#B69A61]/60 to-[#B69A61]" />
+      <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#7B2431]/50 to-[#7B2431]" />
       
       <svg
         viewBox="0 0 70 20"
-        className="w-16 h-5 overflow-visible text-[#B69A61]"
+        className="w-16 h-5 overflow-visible"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        {/* Center lotus/diamond motif */}
+        {/* Center lotus motif in burgundy */}
         <path
           d="M35 2 C38 7, 42 10, 47 10 C42 10, 38 13, 35 18 C32 13, 28 10, 23 10 C28 10, 32 7, 35 2 Z"
           stroke={color}
           strokeWidth="0.8"
           fill={color}
-          fillOpacity="0.08"
+          fillOpacity="0.1"
         />
         {/* Fine flanking paisley curls */}
         <path
@@ -130,7 +130,7 @@ export const Ornament: React.FC<OrnamentProps> = ({
         <circle cx="60" cy="10" r="1" fill={color} opacity="0.7" />
       </svg>
 
-      <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent via-[#B69A61]/60 to-[#B69A61]" />
+      <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent via-[#7B2431]/50 to-[#7B2431]" />
     </div>
   );
 };

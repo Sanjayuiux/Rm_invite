@@ -59,9 +59,9 @@ export const Lightbox: React.FC<LightboxProps> = ({
     const diff = touchStart - touchEnd;
 
     if (diff > 50) {
-      onNext(); // swipe left -> next
+      onNext();
     } else if (diff < -50) {
-      onPrev(); // swipe right -> prev
+      onPrev();
     }
     setTouchStart(null);
   };
@@ -73,7 +73,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 bg-[#121c17]/96 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8 select-none"
+        className="fixed inset-0 z-50 bg-[#24060B]/97 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8 select-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -82,14 +82,14 @@ export const Lightbox: React.FC<LightboxProps> = ({
         onTouchEnd={handleTouchEnd}
       >
         {/* Top bar: counter & close */}
-        <div className="flex items-center justify-between z-20 text-[#EEE5D2] px-2">
-          <span className="font-body text-xs sm:text-sm tracking-[0.25em] uppercase text-[#B69A61]">
+        <div className="flex items-center justify-between z-20 text-[#FAF7F2] px-2">
+          <span className="font-body text-xs sm:text-sm tracking-[0.25em] uppercase text-[#C5A869] font-medium">
             {currentIndex + 1} / {images.length}
           </span>
 
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full border border-[#B69A61]/40 flex items-center justify-center text-[#F7F1E3] hover:border-[#B69A61] transition-all cursor-pointer focus:outline-none"
+            className="w-10 h-10 rounded-full border border-[#7B2431]/60 bg-[#4A0E17]/60 flex items-center justify-center text-[#FFFFFF] hover:border-[#C5A869] transition-all cursor-pointer focus:outline-none"
             aria-label="Close lightbox"
           >
             <X className="w-5 h-5" />
@@ -104,7 +104,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               e.stopPropagation();
               onPrev();
             }}
-            className="absolute left-0 sm:left-2 z-20 w-11 h-11 rounded-full border border-[#B69A61]/40 bg-[#183B2C]/70 text-[#F7F1E3] flex items-center justify-center hover:border-[#B69A61] transition-all cursor-pointer focus:outline-none"
+            className="absolute left-0 sm:left-2 z-20 w-11 h-11 rounded-full border border-[#7B2431]/60 bg-[#4A0E17]/80 text-[#FFFFFF] flex items-center justify-center hover:border-[#C5A869] transition-all cursor-pointer focus:outline-none"
             aria-label="Previous photograph"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -136,7 +136,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               e.stopPropagation();
               onNext();
             }}
-            className="absolute right-0 sm:right-2 z-20 w-11 h-11 rounded-full border border-[#B69A61]/40 bg-[#183B2C]/70 text-[#F7F1E3] flex items-center justify-center hover:border-[#B69A61] transition-all cursor-pointer focus:outline-none"
+            className="absolute right-0 sm:right-2 z-20 w-11 h-11 rounded-full border border-[#7B2431]/60 bg-[#4A0E17]/80 text-[#FFFFFF] flex items-center justify-center hover:border-[#C5A869] transition-all cursor-pointer focus:outline-none"
             aria-label="Next photograph"
           >
             <ChevronRight className="w-6 h-6" />
@@ -145,10 +145,10 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
         {/* Caption */}
         <div className="text-center z-20 py-2">
-          <p className="font-serif text-lg sm:text-xl text-[#F7F1E3] font-normal italic">
+          <p className="font-serif text-lg sm:text-xl text-[#FAF7F2] font-normal italic">
             {currentItem.caption}
           </p>
-          <span className="font-body text-[10px] tracking-[0.25em] uppercase text-[#B69A61]/70 block mt-1">
+          <span className="font-body text-[10px] tracking-[0.25em] uppercase text-[#C5A869]/80 block mt-1 font-medium">
             Swipe or use arrows to navigate
           </span>
         </div>

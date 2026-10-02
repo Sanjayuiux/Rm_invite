@@ -11,11 +11,9 @@ export const ShareButton: React.FC = () => {
     const title = weddingData.meta.siteTitle;
     const text = `${weddingData.meta.whatsappMessage}\n${url}`;
 
-    // On mobile, if navigator.share exists, try it; otherwise direct to WhatsApp!
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-      // Direct WhatsApp share url
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, '_blank');
       return;
@@ -30,11 +28,10 @@ export const ShareButton: React.FC = () => {
         });
         return;
       } catch {
-        // Fallback to clipboard
+        // Fallback
       }
     }
 
-    // Desktop Fallback: Copy Link
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -50,13 +47,13 @@ export const ShareButton: React.FC = () => {
         onClick={handleShare}
         variant="outline"
         size="md"
-        icon={copied ? <Check className="w-4 h-4 text-[#183B2C]" /> : <Share2 className="w-4 h-4 text-[#B69A61]" />}
+        icon={copied ? <Check className="w-4 h-4 text-[#4A0E17]" /> : <Share2 className="w-4 h-4 text-[#7B2431]" />}
         className="min-w-[200px]"
       >
         {copied ? 'Link Copied to Clipboard' : 'Share Invitation'}
       </PrimaryButton>
 
-      <span className="font-body text-[10px] tracking-[0.2em] uppercase text-[#788D78] mt-2 flex items-center gap-1.5 font-medium">
+      <span className="font-body text-[10px] tracking-[0.2em] uppercase text-[#854D56] mt-2 flex items-center gap-1.5 font-semibold">
         <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
         Share with family &amp; friends via WhatsApp
       </span>

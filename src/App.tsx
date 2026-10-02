@@ -20,7 +20,7 @@ export const App: React.FC = () => {
   const [invitationOpened, setInvitationOpened] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F1E3] text-[#2A2119] paper-texture relative selection:bg-[#B69A61]/30 selection:text-[#183B2C]">
+    <div className="min-h-screen bg-[#FAF7F2] text-[#3B2226] paper-texture relative selection:bg-[#5C131D]/20 selection:text-[#4A0E17]">
       {/* Desktop Subtle Circular Cursor */}
       <CustomCursor />
 
