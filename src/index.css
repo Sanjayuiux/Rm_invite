@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #F7F1E3;
+    --bg-cream: #EEE5D2;
+    --color-forest: #183B2C;
+    --color-dark-brown: #2A2119;
+    --color-sage: #788D78;
+    --color-gold: #B69A61;
+    --color-gold-light: #CBB482;
+    --color-beige: #D8CBB5;
+
+    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+    --font-script: "Alex Brush", cursive;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #F7F1E3;
+    color: #2A2119;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: #F7F1E3;
+    color: #2A2119;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings typography default */
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom utility classes */
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-body {
+  font-family: "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+.font-script {
+  font-family: "Alex Brush", cursive;
+}
+
+/* Subtle luxury paper grain overlay */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Gold foil delicate border styling */
+.border-gold-subtle {
+  border-color: rgba(182, 154, 97, 0.35);
+}
+
+.border-gold-medium {
+  border-color: rgba(182, 154, 97, 0.65);
+}
+
+.border-forest-subtle {
+  border-color: rgba(24, 59, 44, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F1E3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CBB5;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B69A61;
+}
+
+/* Custom subtle desktop cursor */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor select,
+  body.has-custom-cursor textarea {
+    cursor: none !important;
+  }
+}
+
+/* Stationery card tactile feel */
+.stationery-card {
+  background-color: #F7F1E3;
+  box-shadow: 0 4px 20px -2px rgba(42, 33, 25, 0.04), 0 2px 6px -1px rgba(42, 33, 25, 0.02);
+}
+
+/* Keyframes for soft pulse or envelope float */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

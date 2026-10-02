@@ -1,0 +1,158 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, CalendarPlus, Clock, Sparkles } from 'lucide-react';
+import { SectionLabel } from './SectionLabel';
+import { PrimaryButton } from './PrimaryButton';
+import { Ornament } from './Ornament';
+import { weddingData } from '../data/weddingData';
+
+export const ReceptionSection: React.FC = () => {
+  const handleAddToCalendar = () => {
+    const icsData = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Manoj & Ranjani Wedding//EN',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      `SUMMARY:${weddingData.reception.calendarDetails.title}`,
+      `DESCRIPTION:${weddingData.reception.calendarDetails.description}`,
+      `LOCATION:${weddingData.wedding.fullAddress}`,
+      `DTSTART:${weddingData.reception.calendarDetails.startDate}`,
+      `DTEND:${weddingData.reception.calendarDetails.endDate}`,
+      'STATUS:CONFIRMED',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+
+    const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.setAttribute('download', 'Manoj-Ranjani-Reception.ics');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <section
+      id="reception"
+      className="relative py-24 sm:py-32 px-6 sm:px-10 md:px-14 max-w-7xl mx-auto overflow-hidden"
+    >
+      {/* Asymmetric Two-Column Editorial Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Left Side: Dramatic Evening Typography */}
+        <motion.div
+          className="lg:col-span-7 flex flex-col items-start text-left"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionLabel theme="gold" className="justify-start">
+            {weddingData.reception.title}
+          </SectionLabel>
+
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#183B2C] font-normal tracking-tight leading-[1.1] mt-2 mb-6">
+            An evening before
+            <br />
+            <span className="italic font-normal">the beginning</span>
+          </h2>
+
+          <div className="flex items-center gap-3 text-[#B69A61] mb-6">
+            <Sparkles className="w-4 h-4 opacity-75" />
+            <span className="font-body text-xs sm:text-[13px] tracking-[0.25em] uppercase font-medium">
+              The Grand Reception
+            </span>
+          </div>
+
+          <p className="font-body text-base sm:text-lg text-[#2A2119]/80 font-light leading-relaxed max-w-lg mb-8">
+            Before the sacred vows at dawn, join us under the evening lights for celebrations, music, and an exquisite dinner banquet with family and friends.
+          </p>
+
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center gap-4">
+            <PrimaryButton
+              as="a"
+              href={weddingData.reception.googleMapsUrl}
+              target="_blank"
+              variant="primary"
+              size="md"
+              icon={<MapPin className="w-4 h-4" />}
+            >
+              Get Directions
+            </PrimaryButton>
+
+            <PrimaryButton
+              onClick={handleAddToCalendar}
+              variant="outline"
+              size="md"
+              icon={<CalendarPlus className="w-4 h-4" />}
+            >
+              Add to Calendar
+            </PrimaryButton>
+          </div>
+        </motion.div>
+
+        {/* Right Side: Architectural Stationery Slate */}
+        <motion.div
+          className="lg:col-span-5 w-full"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="relative p-8 sm:p-10 bg-[#EEE5D2]/70 border border-[#B69A61]/50 text-left">
+            {/* Subtle inner dashed line */}
+            <div className="absolute inset-2 border border-dashed border-[#B69A61]/25 pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col gap-6">
+              {/* Date */}
+              <div>
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+                  Date
+                </span>
+                <p className="font-serif text-3xl sm:text-4xl text-[#183B2C] font-normal mt-1">
+                  21 November 2026
+                </p>
+                <p className="font-body text-xs tracking-[0.25em] uppercase text-[#B69A61] font-semibold mt-0.5">
+                  Saturday Evening
+                </p>
+              </div>
+
+              {/* Time */}
+              <div className="border-t border-[#B69A61]/25 pt-5">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+                  Time
+                </span>
+                <div className="flex items-center gap-2 mt-1">
+                  <Clock className="w-4 h-4 text-[#B69A61]" />
+                  <p className="font-serif text-2xl text-[#183B2C] font-normal">
+                    {weddingData.reception.time}
+                  </p>
+                </div>
+              </div>
+
+              {/* Venue */}
+              <div className="border-t border-[#B69A61]/25 pt-5">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-[#788D78] font-medium block">
+                  Venue
+                </span>
+                <p className="font-serif text-2xl text-[#183B2C] font-normal mt-1">
+                  {weddingData.reception.venue}
+                </p>
+                <p className="font-body text-xs sm:text-sm text-[#2A2119]/75 font-light mt-0.5">
+                  {weddingData.reception.address}
+                </p>
+                <p className="font-body text-xs text-[#788D78] uppercase tracking-[0.18em] font-medium mt-0.5">
+                  {weddingData.reception.city}
+                </p>
+              </div>
+
+              <Ornament type="small" className="opacity-50 mt-2" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
