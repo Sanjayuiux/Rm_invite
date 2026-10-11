@@ -14,20 +14,19 @@ export const RevealAnimation: React.FC<RevealAnimationProps> = ({
   children,
   delay = 0,
   direction = 'up',
-  duration = 0.85,
+  duration = 0.75,
   className = '',
-  blur = true,
 }) => {
   const getOffset = () => {
     switch (direction) {
       case 'up':
-        return { y: 35, x: 0 };
+        return { y: 22, x: 0 };
       case 'down':
-        return { y: -35, x: 0 };
+        return { y: -22, x: 0 };
       case 'left':
-        return { x: 35, y: 0 };
+        return { x: 22, y: 0 };
       case 'right':
-        return { x: -35, y: 0 };
+        return { x: -22, y: 0 };
       case 'none':
         return { x: 0, y: 0 };
     }
@@ -41,21 +40,19 @@ export const RevealAnimation: React.FC<RevealAnimationProps> = ({
         opacity: 0,
         x: offset.x,
         y: offset.y,
-        filter: blur ? 'blur(4px)' : 'none',
       }}
       whileInView={{
         opacity: 1,
         x: 0,
         y: 0,
-        filter: 'blur(0px)',
       }}
-      viewport={{ once: true, margin: '-50px 0px -50px 0px', amount: 0.12 }}
+      viewport={{ once: true, margin: '0px 0px -40px 0px', amount: 0.08 }}
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 0.61, 0.36, 1],
       }}
-      className={className}
+      className={`[will-change:transform,opacity] ${className}`}
     >
       {children}
     </motion.div>

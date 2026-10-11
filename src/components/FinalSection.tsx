@@ -1,58 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { WeddingImagePlaceholder } from './WeddingImagePlaceholder';
-import { Ornament } from './Ornament';
 import { weddingData } from '../data/weddingData';
 
 export const FinalSection: React.FC = () => {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#380B12] text-[#FAF7F2]">
-      {/* Background couple photo placeholder */}
-      <div className="absolute inset-0 opacity-40">
-        <WeddingImagePlaceholder
-          type="FINAL_PHOTO"
-          aspectRatio="hero"
-          label="MANOJ & RANJANI"
-          src="/images/final-placeholder.jpg"
-          alt="Manoj & Ranjani Wedding Photograph"
-          className="w-full h-full object-cover min-h-[85vh] sm:min-h-screen"
-          showHoverEffect={false}
+    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#1A0508] text-[#F8F3E9]">
+      {/* Background couple photo with smooth parallax / zoom reveal */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        initial={{ scale: 1.12, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <img
+          src="/images/final-couple.jpg"
+          alt="Manoj & Ranjani Forever"
+          className="w-full h-full object-cover object-[center_28%]"
+          loading="lazy"
         />
-      </div>
+      </motion.div>
 
-      {/* Deep velvet burgundy vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#4A0E17]/95 via-[#4A0E17]/60 to-[#4A0E17]/90 pointer-events-none" />
+      {/* Deep luxury velvet burgundy vignette overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A0508]/96 via-[#1A0508]/65 to-[#1A0508]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#541820]/30 mix-blend-multiply pointer-events-none" />
 
       {/* Emotional Typography Overlay */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 text-center px-6 sm:px-10 max-w-3xl mx-auto py-20"
       >
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="w-6 h-[1px] bg-[#C5A869]/70" />
-          <span className="font-body text-[11px] sm:text-[12px] uppercase tracking-[0.35em] text-[#C5A869] font-semibold">
-            {weddingData.couple.displayNames.groom} &amp; {weddingData.couple.displayNames.bride}
-          </span>
-          <span className="w-6 h-[1px] bg-[#C5A869]/70" />
+        <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
+          <span className="w-8 h-[0.5px] bg-[#B69A61]/50" />
+          <p className="font-body text-[10px] tracking-[0.3em] uppercase text-[#B69A61]/80 font-light">
+            And So
+          </p>
+          <span className="w-8 h-[0.5px] bg-[#B69A61]/50" />
         </div>
 
-        <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FAF7F2] leading-[1.0] mb-6">
+        <h2
+          className="font-serif italic text-[#F8F3E9] font-light leading-none mb-1 drop-shadow-md"
+          style={{ fontSize: 'clamp(56px, 11vw, 130px)' }}
+        >
           Forever
-          <br />
-          <span className="font-serif font-normal text-[#C5A869]">starts here.</span>
+        </h2>
+        <h2
+          className="font-serif italic font-light leading-none mb-8 sm:mb-10 drop-shadow-md"
+          style={{ fontSize: 'clamp(56px, 11vw, 130px)', color: '#B69A61' }}
+        >
+          starts here.
         </h2>
 
-        <Ornament type="small" color="#C5A869" className="opacity-75 my-6" />
-
-        <p className="font-body text-base sm:text-lg md:text-xl tracking-[0.3em] text-[#FAF7F2] font-light">
-          22 · 11 · 2026
+        <p className="font-body text-sm sm:text-base tracking-[0.3em] uppercase text-[#F8F3E9]/75 font-light mt-6 sm:mt-8">
+          {weddingData.couple.displayNames.groom} &amp; {weddingData.couple.displayNames.bride}
         </p>
 
-        <p className="font-body text-xs sm:text-sm uppercase tracking-[0.28em] text-[#C5A869]/90 mt-2 font-light">
-          Coimbatore, Tamil Nadu
+        <p className="font-body text-xs tracking-[0.25em] text-[#B69A61]/80 font-light mt-2">
+          22 · 11 · 2026
         </p>
       </motion.div>
     </section>

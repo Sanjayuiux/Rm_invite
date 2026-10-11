@@ -1,44 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Petit Formal Script", cursive, Georgia, serif;
-  --font-display: "Petit Formal Script", cursive, Georgia, serif;
-  --font-sans: "Libre Baskerville", Georgia, serif;
-  --font-body: "Libre Baskerville", Georgia, serif;
-  --font-script: "Petit Formal Script", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, sans-serif;
+  --font-body: "Manrope", -apple-system, sans-serif;
 }
 
 @layer base {
   :root {
-    --bg-primary: #FAF7F2;
-    --bg-cream: #F5EFEB;
-    --color-burgundy: #4A0E17;
-    --color-burgundy-rich: #5C131D;
-    --color-burgundy-light: #7B2431;
-    --color-burgundy-blush: #F9F0F2;
-    --color-text-main: #3B2226;
-    --color-text-muted: #854D56;
-    --color-gold: #B89758;
-    --color-gold-light: #C5A869;
-
-    --font-serif: "Petit Formal Script", cursive, Georgia, serif;
-    --font-display: "Petit Formal Script", cursive, Georgia, serif;
-    --font-sans: "Libre Baskerville", Georgia, serif;
-    --font-body: "Libre Baskerville", Georgia, serif;
-    --font-script: "Petit Formal Script", cursive;
+    --bg-ivory: #F8F3E9;
+    --bg-cream: #F1E8DA;
+    --color-burgundy: #541820;
+    --color-burgundy-dark: #351015;
+    --color-burgundy-light: #7B3040;
+    --color-rose-muted: #95666A;
+    --color-gold: #B69A61;
+    --color-gold-light: #C9AC75;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #FAF7F2;
-    color: #3B2226;
-    font-family: "Libre Baskerville", Georgia, serif;
+    background-color: #F8F3E9;
+    color: #541820;
+    font-family: "Manrope", -apple-system, sans-serif;
   }
 
   body {
-    background-color: #FAF7F2;
-    color: #3B2226;
-    font-family: "Libre Baskerville", Georgia, serif;
+    background-color: #F8F3E9;
+    color: #541820;
+    font-family: "Manrope", -apple-system, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -46,34 +37,27 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Headings typography default: Petit Formal Script */
   h1, h2, h3, h4, h5, h6, .font-serif, .font-display {
-    font-family: "Petit Formal Script", cursive, Georgia, serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
     letter-spacing: normal;
+    font-weight: 400;
   }
 }
 
-/* Custom typography classes */
 .font-display {
-  font-family: "Petit Formal Script", cursive, Georgia, serif !important;
-  letter-spacing: normal;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
 }
 
 .font-serif {
-  font-family: "Petit Formal Script", cursive, Georgia, serif !important;
-  letter-spacing: normal;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
 }
 
 .font-body {
-  font-family: "Libre Baskerville", Georgia, serif !important;
+  font-family: "Manrope", -apple-system, sans-serif !important;
 }
 
 .font-sans {
-  font-family: "Libre Baskerville", Georgia, serif !important;
-}
-
-.font-script {
-  font-family: "Petit Formal Script", cursive;
+  font-family: "Manrope", -apple-system, sans-serif !important;
 }
 
 /* Lenis Framer-like Smooth Scrolling */
@@ -97,55 +81,44 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Subtle luxury paper grain overlay */
+/* Subtle film grain overlay (Desktop only to prevent mobile GPU compositing stutters) */
 .paper-texture {
   position: relative;
 }
 
-.paper-texture::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Burgundy & Gold foil delicate borders */
-.border-gold-subtle {
-  border-color: rgba(184, 151, 88, 0.35);
-}
-
-.border-burgundy-subtle {
-  border-color: rgba(74, 14, 23, 0.25);
-}
-
-.border-burgundy-medium {
-  border-color: rgba(74, 14, 23, 0.55);
+@media (hover: hover) and (pointer: fine) {
+  .paper-texture::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #F8F3E9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E8D8D8;
+  background: #C9A89A;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7B2431;
+  background: #541820;
 }
 
-/* Custom subtle desktop cursor */
+/* Desktop cursor */
 @media (hover: hover) and (pointer: fine) {
   body.has-custom-cursor,
   body.has-custom-cursor a,
@@ -157,13 +130,7 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Stationery card tactile feel */
-.stationery-card {
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 20px -2px rgba(74, 14, 23, 0.04), 0 2px 6px -1px rgba(74, 14, 23, 0.02);
-}
-
-/* Reduced motion preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

@@ -1,135 +1,97 @@
 import React from 'react';
-import { MapPin, CalendarPlus, Clock } from 'lucide-react';
 import { SectionLabel } from './SectionLabel';
-import { PrimaryButton } from './PrimaryButton';
 import { Countdown } from './Countdown';
-import { Ornament } from './Ornament';
 import { RevealAnimation } from './RevealAnimation';
 import { weddingData } from '../data/weddingData';
 
 export const WeddingSection: React.FC = () => {
-  const handleAddToCalendar = () => {
-    const icsData = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Manoj & Ranjani Wedding//EN',
-      'CALSCALE:GREGORIAN',
-      'BEGIN:VEVENT',
-      `SUMMARY:${weddingData.wedding.calendarDetails.title}`,
-      `DESCRIPTION:${weddingData.wedding.calendarDetails.description}`,
-      `LOCATION:${weddingData.wedding.fullAddress}`,
-      `DTSTART:${weddingData.wedding.calendarDetails.startDate}`,
-      `DTEND:${weddingData.wedding.calendarDetails.endDate}`,
-      'STATUS:CONFIRMED',
-      'END:VEVENT',
-      'END:VCALENDAR',
-    ].join('\r\n');
-
-    const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.setAttribute('download', 'Manoj-Ranjani-Wedding.ics');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section
       id="wedding"
-      className="relative py-24 sm:py-36 px-6 sm:px-12 bg-[#FAF4F5]/70 border-y border-[#7B2431]/20 overflow-hidden text-center"
+      className="relative py-20 sm:py-36 px-4 sm:px-10 md:px-12 bg-[#F8F3E9] border-t border-[#541820]/8 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto">
-        {/* Section Label */}
+      {/* Bottom-right botanical accent */}
+      <div className="absolute bottom-0 right-0 opacity-[0.08] pointer-events-none">
+        <svg viewBox="0 0 120 120" className="w-36 h-36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M116 116 C90 100, 70 76, 50 56 C30 36, 14 18, 4 4" stroke="#541820" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M116 60 C100 66, 80 70, 60 74" stroke="#541820" strokeWidth="0.5" strokeLinecap="round" opacity="0.6" />
+          <ellipse cx="80" cy="60" rx="5" ry="9" stroke="#541820" strokeWidth="0.6" opacity="0.5" transform="rotate(45 80 60)" />
+          <ellipse cx="96" cy="76" rx="5" ry="9" stroke="#541820" strokeWidth="0.6" opacity="0.4" transform="rotate(20 96 76)" />
+          <circle cx="60" cy="74" r="3" fill="#541820" opacity="0.2" />
+        </svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto">
         <RevealAnimation delay={0}>
-          <SectionLabel>The Wedding</SectionLabel>
+          <SectionLabel className="mb-8 sm:mb-12">The Day</SectionLabel>
         </RevealAnimation>
 
-        {/* Dramatic Date Section - Monumental Typography */}
-        <RevealAnimation delay={0.15}>
-          <div className="my-6 sm:my-10">
-            {/* Huge Number in Royal Burgundy */}
-            <div className="font-serif text-[100px] sm:text-[150px] md:text-[200px] text-[#4A0E17] leading-none font-normal select-none">
-              {weddingData.wedding.dayNumber}
+        {/* ========================================================================= */}
+        {/* RECEPTION FEATURED HIGHLIGHT (Saturday, November 21st, 2026) */}
+        {/* ========================================================================= */}
+        <RevealAnimation delay={0.1}>
+          <div className="bg-[#F1E8DA] border border-[#541820]/20 p-6 sm:p-10 md:p-12 relative overflow-hidden shadow-sm text-center md:text-left">
+            {/* Top gold emblem & badge */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 sm:mb-8 pb-4 border-b border-[#541820]/10 text-center sm:text-left">
+              <span className="inline-block px-3 py-1 bg-[#541820] text-[#F8F3E9] text-[9px] sm:text-[10px] tracking-[0.28em] uppercase font-body font-medium">
+                Featured Celebration
+              </span>
+              <p className="font-body text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#95666A] font-light">
+                Evening Felicitations
+              </p>
             </div>
 
-            {/* Month & Year */}
-            <p className="font-body text-sm sm:text-base md:text-lg text-[#4A0E17] tracking-[0.3em] uppercase font-light mt-1">
-              {weddingData.wedding.monthYear}
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Title / Description */}
+              <div className="md:col-span-4 text-center md:text-left">
+                <h3 className="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-[#351015] font-light leading-tight">
+                  Wedding<br />Reception
+                </h3>
+                <p className="font-body text-xs sm:text-sm text-[#541820]/70 font-light mt-2 max-w-xs mx-auto md:mx-0">
+                  Join us for an evening of felicitations, dinner &amp; joy.
+                </p>
+              </div>
 
-            <p className="font-body text-xs sm:text-sm tracking-[0.35em] text-[#854D56] uppercase font-light mt-1">
-              {weddingData.wedding.day}
-            </p>
+              {/* Center Huge Date (21) */}
+              <div className="md:col-span-4 text-center py-4 md:py-0 border-y md:border-y-0 md:border-x border-[#541820]/10">
+                <div
+                  className="font-serif text-[#541820] font-light leading-none select-none drop-shadow-sm"
+                  style={{ fontSize: 'clamp(95px, 14vw, 150px)' }}
+                >
+                  21
+                </div>
+                <p className="font-body text-xs sm:text-sm tracking-[0.3em] uppercase text-[#541820]/80 mt-1 font-medium">
+                  NOVEMBER 2026
+                </p>
+                <p className="font-body text-[10px] sm:text-[11px] tracking-[0.35em] uppercase text-[#95666A] mt-0.5 font-light">
+                  SATURDAY
+                </p>
+              </div>
+
+              {/* Timing & Venue */}
+              <div className="md:col-span-4 text-center md:text-right space-y-2">
+                <p className="font-serif italic text-2xl sm:text-3xl text-[#541820] font-light leading-tight">
+                  06:00 PM — 09:00 PM
+                </p>
+                <p className="font-body text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#95666A] font-light">
+                  Grand Evening Reception
+                </p>
+                <p className="font-body text-xs sm:text-sm text-[#541820]/65 font-light pt-2">
+                  {weddingData.wedding.venue}, {weddingData.wedding.city}
+                </p>
+              </div>
+            </div>
           </div>
         </RevealAnimation>
 
-        {/* Live Countdown */}
+        {/* Divider */}
+        <RevealAnimation delay={0.2}>
+          <div className="my-12 sm:my-20 w-full h-[0.5px] bg-[#541820]/10" />
+        </RevealAnimation>
+
+        {/* Live Countdown to Reception */}
         <RevealAnimation delay={0.25}>
-          <Countdown />
-        </RevealAnimation>
-
-        <RevealAnimation delay={0.3}>
-          <Ornament type="divider" className="my-10 max-w-sm mx-auto" />
-        </RevealAnimation>
-
-        {/* Ceremony Details */}
-        <RevealAnimation delay={0.35}>
-          <div className="max-w-2xl mx-auto space-y-6">
-            {/* Heading */}
-            <div>
-              <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
-                {weddingData.wedding.title}
-              </h3>
-              <span className="font-body text-[11px] sm:text-[12px] tracking-[0.28em] uppercase text-[#7B2431] font-light block mt-1.5">
-                Auspicious Muhurtham
-              </span>
-            </div>
-
-            {/* Time Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#7B2431]/30 bg-[#FFFFFF] text-[#4A0E17] shadow-sm">
-              <Clock className="w-4 h-4 text-[#7B2431]" />
-              <span className="font-body text-xs sm:text-sm tracking-wider font-light">
-                {weddingData.wedding.time}
-              </span>
-            </div>
-
-            {/* Venue Information */}
-            <div className="pt-2">
-              <h4 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#4A0E17] font-normal leading-tight">
-                {weddingData.wedding.venue}
-              </h4>
-              <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-1">
-                {weddingData.wedding.address}
-              </p>
-              <p className="font-body text-xs sm:text-sm text-[#854D56] uppercase tracking-[0.2em] mt-0.5 font-semibold">
-                {weddingData.wedding.city}
-              </p>
-            </div>
-
-            {/* Action CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <PrimaryButton
-                as="a"
-                href={weddingData.wedding.googleMapsUrl}
-                target="_blank"
-                variant="primary"
-                size="md"
-                icon={<MapPin className="w-4 h-4" />}
-              >
-                Get Directions
-              </PrimaryButton>
-
-              <PrimaryButton
-                onClick={handleAddToCalendar}
-                variant="outline"
-                size="md"
-                icon={<CalendarPlus className="w-4 h-4" />}
-              >
-                Add to Calendar
-              </PrimaryButton>
-            </div>
-          </div>
+          <Countdown targetDate="2026-11-21T18:00:00+05:30" />
         </RevealAnimation>
       </div>
     </section>

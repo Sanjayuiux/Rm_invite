@@ -1,117 +1,91 @@
-import React from 'react';
-import { MapPin, Navigation as NavIcon, Car, Plane, Train } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 import { SectionLabel } from './SectionLabel';
-import { WeddingImagePlaceholder } from './WeddingImagePlaceholder';
 import { PrimaryButton } from './PrimaryButton';
-import { Ornament } from './Ornament';
 import { RevealAnimation } from './RevealAnimation';
 import { weddingData } from '../data/weddingData';
 
 export const VenueSection: React.FC = () => {
+  const [showMap, setShowMap] = useState(false);
+
   return (
     <section
       id="venue"
-      className="relative py-24 sm:py-32 px-6 sm:px-10 md:px-14 max-w-7xl mx-auto"
+      className="relative py-24 sm:py-32 px-5 sm:px-10 md:px-14 bg-[#F1E8DA] border-t border-[#541820]/8 overflow-hidden"
     >
-      <div className="text-center mb-14 sm:mb-18">
+      <div className="max-w-7xl mx-auto">
         <RevealAnimation delay={0}>
-          <SectionLabel>The Venue</SectionLabel>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#4A0E17] font-normal leading-tight">
+          <SectionLabel className="mb-8">The Place</SectionLabel>
+          <h2
+            className="font-serif italic text-[#351015] font-light text-center mb-3"
+            style={{ fontSize: 'clamp(36px, 6vw, 72px)' }}
+          >
             {weddingData.venue.name}
           </h2>
-          <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light mt-2 max-w-xl mx-auto">
+          <p className="text-center font-body text-sm text-[#541820]/60 font-light mb-10 sm:mb-12 tracking-wide px-4">
             {weddingData.venue.addressLine1}, {weddingData.venue.addressLine2}, {weddingData.venue.city}
           </p>
         </RevealAnimation>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-12">
-        {/* Large Venue Image Placeholder */}
-        <div className="lg:col-span-7 flex flex-col">
-          <RevealAnimation direction="left" delay={0.15} className="h-full">
-            <WeddingImagePlaceholder
-              type="VENUE"
-              aspectRatio="wide"
-              label="SRI LAKSHMI MAHAL"
-              src="/images/venue-placeholder.jpg"
-              alt="Sri Lakshmi Mahal Kovilpalayam Coimbatore"
-              className="h-full min-h-[340px] shadow-md"
-            />
-          </RevealAnimation>
-        </div>
+        {/* Large venue image with smooth viewport reveal */}
+        <RevealAnimation delay={0.15}>
+          <div className="relative max-w-5xl mx-auto mb-10 overflow-hidden group shadow-lg">
+            <div className="aspect-[16/9] sm:aspect-[21/10] w-full overflow-hidden">
+              <motion.img
+                src="/images/sri-lakshmi-mahal.jpg"
+                alt="Sri Lakshmi Mahal Kovilpalayam Coimbatore"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.025]"
+                initial={{ scale: 1.08, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                loading="lazy"
+              />
+            </div>
+            {/* Subtle luxury stationery border outline */}
+            <div className="absolute inset-3 sm:inset-5 border border-[#F8F3E9]/25 pointer-events-none" />
+          </div>
+        </RevealAnimation>
 
-        {/* Map Area & Directions Card */}
-        <div className="lg:col-span-5 flex flex-col justify-between">
-          <RevealAnimation direction="right" delay={0.25} className="h-full">
-            <div className="p-8 sm:p-10 bg-[#FFFFFF] border border-[#7B2431]/25 shadow-sm h-full flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 text-[#7B2431] mb-3">
-                  <MapPin className="w-4 h-4" />
-                  <span className="font-body text-[11px] uppercase tracking-[0.25em] font-semibold">
-                    Location &amp; Access
-                  </span>
-                </div>
+        {/* CTAs */}
+        <RevealAnimation delay={0.25}>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <PrimaryButton
+              as="a"
+              href={weddingData.venue.googleMapsUrl}
+              target="_blank"
+              variant="primary"
+              size="md"
+              icon={<MapPin className="w-4 h-4" />}
+            >
+              Get Directions
+            </PrimaryButton>
+            <PrimaryButton
+              onClick={() => setShowMap(!showMap)}
+              variant="outline"
+              size="md"
+            >
+              {showMap ? 'Hide Map' : 'View Map'}
+            </PrimaryButton>
+          </div>
+        </RevealAnimation>
 
-                <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-tight mb-3">
-                  Sri Lakshmi Mahal
-                </h3>
-
-                <p className="font-body text-sm text-[#3B2226]/80 leading-relaxed font-light mb-6">
-                  Located conveniently along the prime Kovai – Sathy Highway in Kovilpalayam, the venue provides spacious air-conditioned halls and valet parking for guests.
-                </p>
-
-                {/* Travel Distances */}
-                <div className="space-y-4 border-t border-[#7B2431]/20 pt-5">
-                  {weddingData.venue.travelNotes.map((note, idx) => {
-                    const Icon = idx === 0 ? Plane : idx === 1 ? Train : Car;
-                    return (
-                      <div key={note.title} className="flex items-start gap-3">
-                        <Icon className="w-4 h-4 text-[#7B2431] mt-0.5 shrink-0" />
-                        <div>
-                          <div className="flex items-baseline gap-2">
-                            <span className="font-body text-xs sm:text-[13px] font-semibold text-[#4A0E17]">
-                              {note.title}
-                            </span>
-                            <span className="font-body text-[11px] text-[#854D56] font-light">
-                              ({note.distance})
-                            </span>
-                          </div>
-                          <p className="font-body text-xs text-[#3B2226]/70 font-light mt-0.5">
-                            {note.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-[#7B2431]/20 mt-6 flex flex-col sm:flex-row items-center gap-4">
-                <PrimaryButton
-                  as="a"
-                  href={weddingData.venue.googleMapsUrl}
-                  target="_blank"
-                  variant="primary"
-                  size="md"
-                  icon={<NavIcon className="w-4 h-4" />}
-                  className="w-full sm:w-auto"
-                >
-                  Get Directions
-                </PrimaryButton>
-
-                <span className="font-body text-xs text-[#854D56] tracking-wider uppercase font-semibold">
-                  Opens in Google Maps
-                </span>
-              </div>
+        {showMap && (
+          <RevealAnimation delay={0.1}>
+            <div className="max-w-4xl mx-auto mt-10 border border-[#541820]/15 shadow-sm">
+              <iframe
+                title="Sri Lakshmi Mahal"
+                width="100%"
+                height="380"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                src="https://maps.google.com/maps?q=Sri+Lakshmi+Mahal+Kovilpalayam+Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              />
             </div>
           </RevealAnimation>
-        </div>
-      </div>
-
-      <div className="text-center">
-        <RevealAnimation delay={0.2}>
-          <Ornament type="divider" color="#7B2431" className="max-w-xs mx-auto opacity-70" />
-        </RevealAnimation>
+        )}
       </div>
     </section>
   );

@@ -12,20 +12,20 @@ export const SectionLabel: React.FC<SectionLabelProps> = ({
   theme = 'burgundy'
 }) => {
   const colorClass = {
-    burgundy: 'text-[#7B2431]',
-    gold: 'text-[#B89758]',
-    light: 'text-[#F5EFEB]'
+    burgundy: 'text-[#541820]/60',
+    gold: 'text-[#B69A61]',
+    light: 'text-[#F8F3E9]/70'
   }[theme];
 
   return (
-    <div className={`flex items-center justify-center gap-2.5 mb-3.5 select-none ${className}`}>
-      <span className="w-4 h-[1px] bg-current opacity-40" />
+    <div className={`flex items-center justify-center gap-3 mb-4 select-none ${className}`}>
+      <span className="flex-1 max-w-[40px] h-[0.5px] bg-current opacity-30" />
       <span
-        className={`text-[11px] sm:text-[12px] uppercase tracking-[0.25em] font-normal font-body ${colorClass}`}
+        className={`text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-normal font-body ${colorClass}`}
       >
         {children}
       </span>
-      <span className="w-4 h-[1px] bg-current opacity-40" />
+      <span className="flex-1 max-w-[40px] h-[0.5px] bg-current opacity-30" />
     </div>
   );
 };

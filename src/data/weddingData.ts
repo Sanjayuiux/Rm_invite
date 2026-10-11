@@ -193,7 +193,7 @@ export const weddingData: WeddingData = {
       tag: "THE EVENING CELEBRATION",
       venue: "Sri Lakshmi Mahal",
       address: "Kovai – Sathy Road, Kovilpalayam, Coimbatore",
-      description: "Join us for an enchanting evening of music, felicitations, and an authentic banquet dinner as both families unite."
+      description: "Sri Lakshmi Mahal, Kovai – Sathy Road, Kovilpalayam, Coimbatore"
     },
     {
       id: "event-02",
@@ -204,7 +204,7 @@ export const weddingData: WeddingData = {
       tag: "AUSPICIOUS MUHURTHAM",
       venue: "Sri Lakshmi Mahal",
       address: "Kovai – Sathy Road, Kovilpalayam, Coimbatore",
-      description: "The traditional auspicious Vedic wedding rituals and Mangalya Dharanam, followed by traditional South Indian breakfast feast."
+      description: "Auspicious Muhurtham at Sri Lakshmi Mahal, Kovilpalayam, Coimbatore"
     }
   ],
 

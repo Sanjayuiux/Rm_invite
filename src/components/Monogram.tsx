@@ -20,28 +20,28 @@ export const Monogram: React.FC<MonogramProps> = ({
 
   const colorStyles = {
     burgundy: {
-      border: 'border-[#5C131D]',
-      text: 'text-[#5C131D]',
+      border: 'border-[#541820]',
+      text: 'text-[#541820]',
       bg: 'bg-transparent',
-      innerBorder: 'border-[#5C131D]/25'
+      innerBorder: 'border-[#541820]/20'
     },
     gold: {
-      border: 'border-[#B89758]/70',
-      text: 'text-[#B89758]',
+      border: 'border-[#B69A61]/70',
+      text: 'text-[#B69A61]',
       bg: 'bg-transparent',
-      innerBorder: 'border-[#B89758]/30'
+      innerBorder: 'border-[#B69A61]/30'
     },
     white: {
-      border: 'border-[#FAF7F2]',
-      text: 'text-[#FFFFFF]',
-      bg: 'bg-[#5C131D]',
-      innerBorder: 'border-[#C5A869]/50'
+      border: 'border-[#F8F3E9]',
+      text: 'text-[#F8F3E9]',
+      bg: 'bg-[#541820]',
+      innerBorder: 'border-[#B69A61]/50'
     },
     subtle: {
-      border: 'border-[#7B2431]/20',
-      text: 'text-[#5C131D]/80',
-      bg: 'bg-[#F9F0F2]',
-      innerBorder: 'border-[#7B2431]/20'
+      border: 'border-[#541820]/20',
+      text: 'text-[#541820]/80',
+      bg: 'bg-[#F1E8DA]',
+      innerBorder: 'border-[#541820]/15'
     }
   }[variant];
 
@@ -50,14 +50,12 @@ export const Monogram: React.FC<MonogramProps> = ({
       className={`inline-flex items-center justify-center rounded-full border relative transition-all duration-300 select-none ${sizeClasses} ${colorStyles.border} ${colorStyles.bg} ${className}`}
       aria-label="Manoj and Ranjani Monogram"
     >
-      {/* Subtle inner concentric ring for fine stationery engraving feel */}
       <span
         className={`absolute inset-1 rounded-full border border-dashed pointer-events-none ${colorStyles.innerBorder}`}
       />
-
-      <div className={`font-serif text-lg font-normal flex items-center justify-center leading-none ${colorStyles.text}`}>
+      <div className={`font-serif flex items-center justify-center leading-none ${colorStyles.text}`}>
         <span>M</span>
-        <span className="text-[0.65em] mx-[1px] font-sans not-italic font-light opacity-80">&amp;</span>
+        <span className="text-[0.6em] mx-[1px] font-body font-light opacity-70">&amp;</span>
         <span>R</span>
       </div>
     </div>

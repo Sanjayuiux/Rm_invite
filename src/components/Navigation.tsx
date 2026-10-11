@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Monogram } from './Monogram';
-import { Ornament } from './Ornament';
 
 interface NavigationProps {
   visible: boolean;
@@ -14,7 +13,7 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,11 +21,9 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
 
   const navItems = [
     { label: 'The Couple', href: '#couple' },
-    { label: 'The Wedding', href: '#wedding' },
-    { label: 'Reception', href: '#reception' },
-    { label: 'Timeline', href: '#timeline' },
-    { label: 'Venue', href: '#venue' },
-    { label: 'RSVP', href: '#rsvp' },
+    { label: 'The Day', href: '#wedding' },
+    { label: 'Schedule', href: '#timeline' },
+    { label: 'Location', href: '#venue' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -44,12 +41,11 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#FFFFFF]/95 backdrop-blur-md py-3.5 border-b border-[#7B2431]/20 shadow-sm'
-            : 'bg-transparent py-5 sm:py-7'
+            ? 'bg-[#F8F3E9]/95 backdrop-blur-md py-3.5 border-b border-[#541820]/15 shadow-sm'
+            : 'bg-gradient-to-b from-[#1A0508]/80 via-[#1A0508]/40 to-transparent py-4 sm:py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-          {/* Brand Monogram */}
           <a
             href="#hero"
             onClick={(e) => {
@@ -59,9 +55,17 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
             className="group flex items-center gap-2.5 focus:outline-none"
             aria-label="Scroll to top"
           >
-            <Monogram size="sm" variant="burgundy" className="group-hover:scale-105 transition-transform" />
-            <span className="font-serif text-[#4A0E17] text-sm tracking-[0.2em] uppercase hidden sm:inline">
-              Manoj &amp; Ranjani
+            <Monogram
+              size="sm"
+              variant={isScrolled ? 'burgundy' : 'white'}
+              className="group-hover:scale-105 transition-transform"
+            />
+            <span
+              className={`font-body text-[11px] sm:text-xs tracking-[0.22em] uppercase hidden sm:inline font-medium transition-colors ${
+                isScrolled ? 'text-[#541820]' : 'text-[#F8F3E9] drop-shadow-sm'
+              }`}
+            >
+              M&amp;R
             </span>
           </a>
 
@@ -75,55 +79,85 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="font-body text-[11px] lg:text-[12px] tracking-[0.22em] uppercase font-medium text-[#3B2226]/80 hover:text-[#5C131D] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-[#7B2431] hover:after:w-full after:transition-all after:duration-300"
+                className={`font-body text-[11px] lg:text-[12px] tracking-[0.24em] uppercase font-medium transition-colors relative py-1 ${
+                  isScrolled
+                    ? 'text-[#541820]/80 hover:text-[#541820]'
+                    : 'text-[#F8F3E9]/90 hover:text-[#F8F3E9] drop-shadow-sm'
+                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] ${
+                  isScrolled ? 'after:bg-[#541820]' : 'after:bg-[#F8F3E9]'
+                } hover:after:w-full after:transition-all after:duration-300`}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Desktop Share Button */}
+          <div className="hidden md:block">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                const url = window.location.href;
+                if (navigator.share) {
+                  navigator.share({ title: 'Manoj & Ranjani Wedding', url }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(url).catch(() => {});
+                }
+              }}
+              className={`font-body text-[10px] tracking-[0.22em] uppercase font-medium transition-all px-4 py-2 border ${
+                isScrolled
+                  ? 'text-[#541820] border-[#541820]/35 hover:bg-[#541820] hover:text-[#F8F3E9]'
+                  : 'text-[#F8F3E9] border-[#F8F3E9]/40 hover:bg-[#F8F3E9]/15 drop-shadow-sm'
+              }`}
+            >
+              Share Invitation
+            </a>
+          </div>
+
+          {/* Mobile Menu Trigger Button (Prominent pill design with solid contrast) */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden flex items-center gap-2 text-[#5C131D] py-1.5 px-3 rounded border border-[#7B2431]/40 bg-[#FFFFFF]/90 backdrop-blur-sm active:scale-95 focus:outline-none"
+            className={`md:hidden flex items-center gap-2 py-2 px-3.5 border transition-all active:scale-95 focus:outline-none ${
+              isScrolled
+                ? 'text-[#541820] border-[#541820]/30 bg-[#F8F3E9]/95 shadow-sm'
+                : 'text-[#F8F3E9] border-[#F8F3E9]/40 bg-[#1A0508]/60 backdrop-blur-md shadow-md'
+            }`}
             aria-label="Open navigation menu"
           >
-            <span className="font-body text-[11px] tracking-[0.2em] uppercase font-medium">Menu</span>
-            <Menu className="w-4 h-4 text-[#5C131D]" />
+            <span className="font-body text-[10px] tracking-[0.22em] uppercase font-medium">Menu</span>
+            <Menu className="w-4 h-4" />
           </button>
         </div>
       </header>
 
-      {/* Mobile Fullscreen Luxury Menu Overlay */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-[#FAF7F2] flex flex-col justify-between p-6 sm:p-10 select-none md:hidden"
+            className="fixed inset-0 z-50 bg-[#F8F3E9] flex flex-col px-8 py-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Header: Monogram & Close */}
-            <div className="flex items-center justify-between border-b border-[#7B2431]/20 pb-4">
+            <div className="flex items-center justify-between mb-12">
               <div className="flex items-center gap-2.5">
                 <Monogram size="sm" variant="burgundy" />
-                <span className="font-serif text-[#4A0E17] text-sm tracking-[0.2em] uppercase">
+                <span className="font-body text-[#541820] text-[11px] tracking-[0.22em] uppercase font-medium">
                   Manoj &amp; Ranjani
                 </span>
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-10 h-10 rounded-full border border-[#7B2431]/40 flex items-center justify-center text-[#5C131D] active:scale-95 focus:outline-none"
+                className="w-10 h-10 border border-[#541820]/30 flex items-center justify-center text-[#541820] active:scale-95 focus:outline-none"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Menu Links */}
-            <div className="flex flex-col items-center justify-center gap-6 my-auto text-center">
-              <Ornament type="small" color="#7B2431" className="opacity-60 mb-2" />
+            <div className="flex flex-col gap-8 my-auto">
               {navItems.map((item, idx) => (
                 <motion.a
                   key={item.label}
@@ -132,21 +166,19 @@ export const Navigation: React.FC<NavigationProps> = ({ visible }) => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * idx, duration: 0.3 }}
-                  className="font-serif text-2xl sm:text-3xl text-[#4A0E17] hover:text-[#7B2431] transition-colors tracking-wide"
+                  className="font-serif italic text-3xl sm:text-4xl text-[#541820] hover:text-[#351015] transition-colors"
                 >
                   {item.label}
                 </motion.a>
               ))}
-              <Ornament type="small" color="#7B2431" className="opacity-60 mt-2" />
             </div>
 
-            {/* Footer details */}
-            <div className="text-center border-t border-[#7B2431]/20 pt-4">
-              <p className="font-body text-[11px] tracking-[0.25em] text-[#854D56] uppercase font-medium">
-                22 November 2026 · Coimbatore
+            <div className="text-center border-t border-[#541820]/10 pt-6">
+              <p className="font-body text-[10px] tracking-[0.25em] text-[#95666A] uppercase font-light">
+                21 &amp; 22 November 2026 · Coimbatore
               </p>
             </div>
           </motion.div>

@@ -7,11 +7,8 @@ import { Hero } from './components/Hero';
 import { InvitationIntro } from './components/InvitationIntro';
 import { CoupleSection } from './components/CoupleSection';
 import { WeddingSection } from './components/WeddingSection';
-import { ReceptionSection } from './components/ReceptionSection';
 import { Timeline } from './components/Timeline';
 import { VenueSection } from './components/VenueSection';
-import { FamilySection } from './components/FamilySection';
-import { RSVP } from './components/RSVP';
 import { FinalSection } from './components/FinalSection';
 import { Footer } from './components/Footer';
 import { MusicController } from './components/MusicController';
@@ -23,15 +20,16 @@ export const App: React.FC = () => {
   useEffect(() => {
     if (!invitationOpened) return;
 
-    // Framer-grade inertial smooth scrolling physics
+    // Framer-grade inertial smooth scrolling physics (optimized for 60-120Hz mobile & desktop)
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: isTouch ? 0.9 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.95,
-      touchMultiplier: 1.5,
+      syncTouch: false, // Do not hijack mobile touch scroll
+      touchMultiplier: 1.0,
       infinite: false,
     });
 
@@ -67,7 +65,7 @@ export const App: React.FC = () => {
   }, [invitationOpened]);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#3B2226] paper-texture relative selection:bg-[#5C131D]/20 selection:text-[#4A0E17]">
+    <div className="min-h-screen bg-[#F8F3E9] text-[#541820] paper-texture relative selection:bg-[#541820]/20 selection:text-[#351015]">
       {/* Desktop Subtle Circular Cursor */}
       <CustomCursor />
 
@@ -110,20 +108,11 @@ export const App: React.FC = () => {
             {/* The Wedding Ceremony & Save the Date with Live Countdown */}
             <WeddingSection />
 
-            {/* The Reception Section */}
-            <ReceptionSection />
-
-            {/* Two Days Timeline */}
+            {/* Two Days Timeline / Schedule */}
             <Timeline />
 
-            {/* The Venue Section */}
+            {/* Venue / Location Section */}
             <VenueSection />
-
-            {/* Family Section */}
-            <FamilySection />
-
-            {/* Stationery RSVP Form */}
-            <RSVP />
 
             {/* Final Emotional Photograph Section */}
             <FinalSection />

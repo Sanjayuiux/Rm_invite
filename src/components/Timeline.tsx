@@ -1,119 +1,104 @@
-import React from 'react';
-import { Clock, MapPin } from 'lucide-react';
-import { SectionLabel } from './SectionLabel';
-import { Ornament } from './Ornament';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { RevealAnimation } from './RevealAnimation';
 import { weddingData } from '../data/weddingData';
 
 export const Timeline: React.FC = () => {
+  const lineRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(lineRef, { once: true, margin: '-20px' });
+
   return (
     <section
       id="timeline"
-      className="relative py-24 sm:py-32 px-6 sm:px-10 max-w-4xl mx-auto overflow-hidden"
+      className="relative py-20 sm:py-32 px-5 sm:px-10 bg-[#F8F3E9] border-t border-[#541820]/8"
     >
-      <div className="text-center mb-16 sm:mb-20">
+      <div className="max-w-3xl mx-auto">
         <RevealAnimation delay={0}>
-          <SectionLabel>Schedule</SectionLabel>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#4A0E17] font-normal leading-tight">
-            Two Days of Celebration
-          </h2>
-          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.25em] text-[#854D56] mt-2 font-light">
-            Coimbatore, Tamil Nadu
+          <p className="text-center font-body text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#541820]/50 mb-5 sm:mb-6 font-light">
+            Schedule
           </p>
+          <h2 className="text-center font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#351015] font-light mb-14 sm:mb-20">
+            Two days of celebration
+          </h2>
         </RevealAnimation>
-      </div>
 
-      {/* Editorial Vertical Timeline */}
-      <div className="relative">
-        {/* Central Vertical Line */}
-        <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[1px] bg-gradient-to-b from-[#7B2431]/20 via-[#7B2431]/60 to-[#7B2431]/20 -translate-x-1/2" />
+        <div className="relative" ref={lineRef}>
+          {/* Animated vertical line (Left aligned on mobile, centered on sm+) */}
+          <motion.div
+            className="absolute left-[24px] sm:left-1/2 top-0 bottom-0 w-[0.5px] bg-[#541820]/20 origin-top -translate-x-1/2"
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          />
 
-        <div className="space-y-16 sm:space-y-24">
-          {weddingData.timeline.map((event, index) => {
-            const isEven = index % 2 === 0;
+          <div className="space-y-12 sm:space-y-20">
+            {weddingData.timeline.map((event, index) => {
+              const isEven = index % 2 === 0;
 
-            return (
-              <div
-                key={event.id}
-                className={`relative flex flex-col sm:flex-row items-start ${
-                  isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
-                } gap-6 sm:gap-12 pl-12 sm:pl-0`}
-              >
-                {/* Milestone Node on line */}
-                <div className="absolute left-4 sm:left-1/2 top-2 -translate-x-1/2 z-10">
-                  <div className="w-5 h-5 rounded-full bg-[#FFFFFF] border-2 border-[#5C131D] flex items-center justify-center shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#7B2431]" />
-                  </div>
-                </div>
-
-                {/* Content Box */}
+              return (
                 <div
-                  className={`w-full sm:w-1/2 ${
-                    isEven ? 'sm:text-right sm:pr-8' : 'sm:text-left sm:pl-8'
+                  key={event.id}
+                  className={`relative flex items-start gap-6 sm:gap-12 pl-14 sm:pl-0 ${
+                    isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
                   }`}
                 >
-                  <RevealAnimation
-                    direction={isEven ? 'left' : 'right'}
-                    delay={0.1 * index}
+                  {/* Dot */}
+                  <motion.div
+                    className="absolute left-[24px] sm:left-1/2 top-3 -translate-x-1/2 z-10"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.25 }}
                   >
-                    {/* Event Tag */}
-                    <span className="font-body text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#7B2431] font-semibold block mb-1">
-                      {event.tag}
-                    </span>
-
-                    {/* Date & Day */}
-                    <div className="mb-2">
-                      <span className="font-body text-sm sm:text-base text-[#4A0E17] font-medium">
-                        {event.date}
-                      </span>
-                      <span className="font-body text-[11px] uppercase tracking-[0.2em] text-[#854D56] block font-light">
-                        {event.day}
-                      </span>
+                    <div className="w-4 h-4 rounded-full bg-[#F8F3E9] border-[1.5px] border-[#541820] flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#541820]" />
                     </div>
+                  </motion.div>
 
-                    {/* Title */}
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#4A0E17] font-normal leading-tight mb-2">
-                      {event.title}
-                    </h3>
-
-                    {/* Time */}
-                    <div
-                      className={`inline-flex items-center gap-1.5 text-[#4A0E17] bg-[#F9F0F2] px-3 py-1 border border-[#7B2431]/25 rounded-none mb-3 ${
-                        isEven ? 'sm:flex-row-reverse' : ''
-                      }`}
+                  {/* Content Container */}
+                  <div
+                    className={`w-full sm:w-1/2 text-left ${
+                      isEven ? 'sm:text-right sm:pr-10' : 'sm:text-left sm:pl-10'
+                    }`}
+                  >
+                    <RevealAnimation
+                      direction={isEven ? 'left' : 'right'}
+                      delay={0.15 * index}
                     >
-                      <Clock className="w-3.5 h-3.5 text-[#7B2431]" />
-                      <span className="font-body text-xs tracking-wider font-semibold">
+                      <p className="font-body text-[10px] tracking-[0.3em] uppercase text-[#95666A] font-light mb-1.5">
+                        {event.tag}
+                      </p>
+
+                      <p
+                        className="font-serif text-[#541820] font-light leading-none mb-1"
+                        style={{ fontSize: 'clamp(52px, 7vw, 80px)' }}
+                      >
+                        {event.date.split(' ')[0]}
+                      </p>
+
+                      <p className="font-body text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#541820]/65 font-medium">
+                        {event.date.split(' ')[1]} · {event.day}
+                      </p>
+
+                      <p className="font-body text-xs sm:text-sm text-[#95666A] font-light mt-1">
                         {event.time}
-                      </span>
-                    </div>
+                      </p>
 
-                    {/* Description */}
-                    <p className="font-body text-sm sm:text-base text-[#3B2226]/80 font-light leading-relaxed mb-3">
-                      {event.description}
-                    </p>
+                      <h3 className="font-serif italic text-2xl sm:text-3xl text-[#351015] font-light mt-2.5 mb-1">
+                        {event.title}
+                      </h3>
 
-                    {/* Venue location line */}
-                    <div
-                      className={`flex items-center gap-1.5 text-xs text-[#854D56] font-body ${
-                        isEven ? 'sm:justify-end' : 'sm:justify-start'
-                      }`}
-                    >
-                      <MapPin className="w-3.5 h-3.5 text-[#7B2431] shrink-0" />
-                      <span>{event.venue}</span>
-                    </div>
-                  </RevealAnimation>
+                      <p className="font-body text-xs text-[#541820]/60 font-light">
+                        {event.venue}
+                      </p>
+                    </RevealAnimation>
+                  </div>
+
+                  <div className="hidden sm:block sm:w-1/2" />
                 </div>
-
-                <div className="hidden sm:block sm:w-1/2" />
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-
-      <div className="text-center mt-16 sm:mt-20">
-        <Ornament type="small" color="#7B2431" className="opacity-60" />
       </div>
     </section>
   );
