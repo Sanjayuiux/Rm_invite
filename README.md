@@ -1,7 +1,7 @@
 # Manoj & Ranjani — Luxury Interactive Wedding Invitation
 
 A digital wedding invitation web application crafted for:
-**R.S. Manoj, MBA. & K. Ranjani, M.Sc.**
+**R.S. Manoj, MIB. & K. Ranjani, M.Sc.**
 
 ---
 

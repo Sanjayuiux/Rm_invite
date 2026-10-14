@@ -114,7 +114,7 @@ export interface WeddingData {
 export const weddingData: WeddingData = {
   couple: {
     groom: "R.S. Manoj",
-    groomQualification: "MBA.",
+    groomQualification: "MIB.",
     bride: "K. Ranjani",
     brideQualification: "M.Sc.",
     displayNames: {
